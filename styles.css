@@ -1856,25 +1856,41 @@ button, input, select, textarea {
 .site-footer {
   background: linear-gradient(180deg, #030b17 0%, #07172e 100%);
   color: #94a3b8;
-  padding: 70px 0 30px 0;
+  padding: 70px 0 32px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   width: 100%;
+  position: relative;
+  z-index: 20;
 }
 
-.footer-main-grid {
+.footer-container,
+.footer-inner {
+  width: 100%;
+  max-width: 1680px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 36px;
+  padding-right: 36px;
+}
+
+.footer-main-grid,
+.footer-grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr 1.3fr;
   gap: 36px;
   margin-bottom: 48px;
+  width: 100%;
 }
 
 .footer-logo-img {
   height: 52px;
   width: auto;
   margin-bottom: 16px;
+  display: block;
 }
 
-.footer-brand-desc {
+.footer-brand-desc,
+.footer-desc {
   font-size: 0.875rem;
   line-height: 1.6;
   color: #cbd5e1;
@@ -1907,11 +1923,14 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-links-col a {
   color: #cbd5e1;
   font-size: 0.875rem;
+  text-decoration: none;
   transition: var(--transition-fast);
 }
 
@@ -1933,10 +1952,69 @@ button, input, select, textarea {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 12px;
-  font-size: 0.8rem;
-  color: #64748b;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: #94a3b8;
 }
+
+.footer-developer-credit {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-developer-credit .credit-link,
+.credit-link {
+  color: #38bdf8;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-developer-credit .credit-link:hover,
+.credit-link:hover {
+  color: #ffffff;
+  background: rgba(56, 189, 248, 0.25);
+  border-color: #38bdf8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .footer-main-grid,
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-main-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-container,
+  .footer-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .footer-copyright-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
 
 /* ==========================================================================
    MOBILE SLIDE-OUT DRAWER
