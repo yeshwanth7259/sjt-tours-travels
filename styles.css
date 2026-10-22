@@ -3684,3 +3684,146 @@ button, input, select, textarea {
   margin-bottom: 20px;
 }
 
+/* ==========================================================================
+   DRIVER ONBOARDING PREMIUM HERO & FLEET SHOWCASE STYLES
+   ========================================================================== */
+.hero-gold-text {
+  background: linear-gradient(135deg, #ffd700 0%, #ff9900 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.driver-hero-section {
+  position: relative;
+  background: linear-gradient(135deg, #020813 0%, #06152a 45%, #0b2244 100%);
+  padding: 48px 0 56px 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.driver-hero-section .subpage-title {
+  color: #ffffff;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 14px;
+}
+
+.driver-hero-section .subpage-subtitle {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+
+.driver-visual-card {
+  position: relative;
+  width: 100%;
+  max-width: 530px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(37, 211, 102, 0.2);
+  background: #020813;
+  animation: bannerCardFloat 6s ease-in-out infinite;
+}
+
+.driver-card-meta-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 14px 18px;
+  background: rgba(3, 11, 23, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+}
+
+.driver-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.driver-meta-item .meta-label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.driver-meta-item .meta-value {
+  font-size: 0.88rem;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+/* Full Width Panoramic Showcase */
+.onboard-fleet-panoramic-showcase {
+  margin: 32px 0 28px 0;
+  position: relative;
+}
+
+.onboard-fleet-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.onboard-fleet-header .section-tag-pill {
+  display: inline-block;
+  background: rgba(230, 32, 32, 0.12);
+  border: 1px solid rgba(230, 32, 32, 0.25);
+  color: #ef4444;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+
+.onboard-fleet-header h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  font-weight: 900;
+  color: var(--sjt-navy-900);
+  margin-bottom: 6px;
+}
+
+.onboard-fleet-header p {
+  font-size: 0.95rem;
+  color: var(--slate-600);
+}
+
+.onboard-panoramic-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(3, 11, 23, 0.2);
+  border: 1.5px solid rgba(226, 232, 240, 0.9);
+  background: #ffffff;
+}
+
+.onboard-panoramic-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .driver-visual-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .driver-card-meta-bar {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px 14px;
+  }
+}
+
+
+
