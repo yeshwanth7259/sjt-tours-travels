@@ -3,7 +3,7 @@
  * Safe Journeys | Happy Destinations
  * Core Interactive Application Engine
  * 24/7 Operations Desk: +91 99009 75920
- * Registered Hub: Thotada Guddadhalli Village, Bengaluru, Thammenahalli, Bangalore-562162, Karnataka
+ * Registered Hub: Sharanappa, # 101 1st main 4th cross BGS Layout near narasappa cricle Thotadaguddadahalli Nagasandra post Bangalore 560073
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { name: 'Shivanasamudra Falls (Barachukki & Gaganachukki)', category: 'Twin Waterfalls', icon: '🌊', sub: '135 KM • Kaveri Cascades' },
 
     // T
-    { name: 'Thammenahalli (SJT Registered Hub)', category: 'Head Office', icon: '📍', sub: 'Thotada Guddadhalli, Bangalore-562162' },
+    { name: 'Nagasandra BGS Layout (SJT Registered Hub)', category: 'Head Office', icon: '📍', sub: 'Sharanappa, # 101 BGS Layout, Near Narasappa Circle, Bangalore-560073' },
     { name: 'Tirupati (Lord Balaji Temple)', category: 'Top Pilgrimage', icon: '🛕', sub: '250 KM • Seven Hills of Tirumala' },
     { name: 'Thiruvannamalai (Arunachaleswarar Temple)', category: 'Holy Mountain', icon: '🛕', sub: '200 KM • Agni Lingam Pilgrimage' },
     { name: 'Thanjavur (Brihadeeswarar Big Temple)', category: 'UNESCO Chola Temple', icon: '🛕', sub: '390 KM • 1000-Year Architectural Wonder' },
@@ -145,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Vehicle Rates Matrix (For WhatsApp and Slip Generation)
   const VEHICLE_PRICING = {
+    'swift': { name: 'Maruti Swift (4 Seater)', perKm: 12, minKmDay: 250, baseDay: 3000 },
     'etios': { name: 'Toyota Etios Sedan (4+1)', perKm: 13, minKmDay: 250, baseDay: 3250 },
     'ertiga': { name: 'Maruti Suzuki Ertiga (6+1)', perKm: 15, minKmDay: 250, baseDay: 3750 },
     'innova': { name: 'Toyota Innova Crysta (7+1)', perKm: 19, minKmDay: 250, baseDay: 4750 },
@@ -306,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show recommended popular quick picks when input is empty
         if (defaultType === 'pickup') {
           matches = LOCATION_DATABASE.filter(loc => 
-            loc.name.includes('Bengaluru') || loc.name.includes('Airport') || loc.name.includes('Electronic City') || loc.name.includes('Manyata') || loc.name.includes('Thammenahalli')
+            loc.name.includes('Bengaluru') || loc.name.includes('Airport') || loc.name.includes('Electronic City') || loc.name.includes('Manyata') || loc.name.includes('Nagasandra')
           ).slice(0, 6);
         } else {
           matches = LOCATION_DATABASE.filter(loc => 
@@ -567,7 +568,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ${returnDate ? `🔙 *Return Date:* ${returnDate}\n` : ''}🚐 *Vehicle Requested:* ${vehicle.name}
 ━━━━━━━━━━━━━━━━━━━━━
 *SJT Registered Hub:*
-Thotada Guddadhalli Village, Bengaluru, Thammenahalli, Bangalore-562162
+Sharanappa, # 101 1st main 4th cross BGS Layout near narasappa cricle Thotadaguddadahalli Nagasandra post Bangalore 560073
 ━━━━━━━━━━━━━━━━━━━━━
 _Please confirm vehicle availability, driver contact, and final best quote._`;
 
@@ -606,7 +607,7 @@ _Please confirm vehicle availability, driver contact, and final best quote._`;
         <div class="slip-header-row">
           <div>
             <div style="font-weight: 800; color: var(--sjt-navy-900); font-size: 1.05rem;">SJT TOURS &amp; TRAVELS PVT. LTD.</div>
-            <div style="font-size: 0.75rem; color: var(--slate-500);">Thammenahalli, Bangalore-562162, Karnataka</div>
+            <div style="font-size: 0.75rem; color: var(--slate-500);">Sharanappa, # 101 BGS Layout, Nagasandra, Bangalore-560073</div>
           </div>
           <div class="slip-ref-pill">${data.ref}</div>
         </div>
@@ -669,7 +670,7 @@ _Please confirm vehicle availability, driver contact, and final best quote._`;
     const copyBtn = document.getElementById('copySlipBtn');
     if (copyBtn) {
       copyBtn.addEventListener('click', () => {
-        const textToCopy = `SJT Tours & Travels Booking Ref: ${data.ref} | From: ${data.pickup} to ${data.drop} | Vehicle: ${data.vehicleName} | Date: ${data.travelDate} | Hub: Thammenahalli Bangalore-562162`;
+        const textToCopy = `SJT Tours & Travels Booking Ref: ${data.ref} | From: ${data.pickup} to ${data.drop} | Vehicle: ${data.vehicleName} | Date: ${data.travelDate} | Hub: Sharanappa, # 101 BGS Layout Nagasandra Bangalore 560073`;
         navigator.clipboard.writeText(textToCopy).then(() => {
           showToast('Quotation details copied to clipboard!');
         });
@@ -756,7 +757,7 @@ _Please confirm vehicle availability, driver contact, and final best quote._`;
 ⏰ *Shift Operations:* ${shifts}
 ━━━━━━━━━━━━━━━━━━━━━
 *SJT Registered Hub:*
-Thotada Guddadhalli Village, Bengaluru, Thammenahalli, Bangalore-562162
+Sharanappa, # 101 1st main 4th cross BGS Layout near narasappa cricle Thotadaguddadahalli Nagasandra post Bangalore 560073
 ━━━━━━━━━━━━━━━━━━━━━
 _We request SJT Corporate Fleet team to share standard SLA, vehicle inspection details, and monthly attachment rate card._`;
 
@@ -785,7 +786,7 @@ _We request SJT Corporate Fleet team to share standard SLA, vehicle inspection d
 💬 *Message:* ${message}
 ━━━━━━━━━━━━━━━━━━━━━
 *Office Location:*
-Thotada Guddadhalli Village, Bengaluru, Thammenahalli, Bangalore-562162, Karnataka
+Sharanappa, # 101 1st main 4th cross BGS Layout near narasappa cricle Thotadaguddadahalli Nagasandra post Bangalore 560073
 ━━━━━━━━━━━━━━━━━━━━━
 _Sent from SJT Official Portal Contact Form_`;
 

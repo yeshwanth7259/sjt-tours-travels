@@ -1,7 +1,7 @@
 /* ==========================================================================
    SJT TOURS & TRAVELS PVT. LTD. - FULL-WIDTH ULTRA-MODERN MASTER STYLESHEET
    Safe Journeys | Happy Destinations
-   Registered Office: Thotada Guddadhalli Village, Bengaluru, Thammenahalli, Bangalore-562162, Karnataka
+   Registered Office: Sharanappa, # 101 1st main 4th cross BGS Layout near narasappa cricle Thotadaguddadahalli Nagasandra post Bangalore 560073
    24/7 Operations Desk: +91 99009 75920
    ========================================================================== */
 
@@ -287,6 +287,20 @@ button, input, select, textarea {
   margin-left: 4px;
 }
 
+.badge-driver-tag {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  margin-left: 4px;
+  letter-spacing: 0.3px;
+  display: inline-block;
+  box-shadow: 0 1px 4px rgba(21, 128, 61, 0.15);
+}
+
 /* Header Action Buttons */
 .header-actions {
   display: flex;
@@ -386,10 +400,8 @@ button, input, select, textarea {
 .panoramic-banner-media img {
   width: 100%;
   height: auto;
-  min-height: 420px;
-  max-height: 640px;
-  object-fit: cover;
-  object-position: center 25%;
+  max-width: 100%;
+  object-fit: contain;
   display: block;
   margin: 0 auto;
   transform-origin: center center;
@@ -496,7 +508,7 @@ button, input, select, textarea {
 .booking-dock-wrapper {
   width: 100%;
   max-width: 1680px;
-  margin: -115px auto 0 auto; /* Generous direct overlap on the bottom of the grand banner */
+  margin: 18px auto 0 auto; /* Seamlessly positioned directly below the full banner */
   padding: 0 36px;
   position: relative;
   z-index: 30;
@@ -2345,7 +2357,7 @@ button, input, select, textarea {
 
   .booking-dock-wrapper {
     padding: 0 16px;
-    margin-top: -45px; /* Overlaps banner nicely on mobile */
+    margin-top: 14px; /* Sits naturally right below the grand banner on mobile without covering text */
   }
 
   .booking-dock-card {
@@ -3135,3 +3147,540 @@ button, input, select, textarea {
     display: none !important;
   }
 }
+
+/* ==========================================================================
+   DRIVER & VEHICLE ONBOARDING SYSTEM STYLES
+   ========================================================================== */
+.onboarding-main-section {
+  padding: 44px 0 80px 0;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+}
+
+.onboarding-layout-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (max-width: 1080px) {
+  .onboarding-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.onboarding-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 12px 40px -10px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.8);
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.onboarding-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--sjt-red-500) 0%, var(--sjt-navy-850) 100%);
+}
+
+.onboarding-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.step-num-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--sjt-navy-900) 0%, var(--sjt-navy-700) 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 12px rgba(7, 23, 46, 0.25);
+  flex-shrink: 0;
+}
+
+.step-header-text h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--sjt-navy-950);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.step-header-text p {
+  font-size: 0.875rem;
+  color: var(--slate-500);
+  margin-top: 3px;
+  margin-bottom: 0;
+}
+
+.onboard-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 640px) {
+  .onboard-form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .onboarding-card {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+}
+
+.onboard-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.onboard-field.col-span-2 {
+  grid-column: span 2;
+}
+
+@media (max-width: 640px) {
+  .onboard-field.col-span-2 {
+    grid-column: span 1;
+  }
+}
+
+.onboard-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--slate-700);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.onboard-label .req {
+  color: var(--sjt-red-500);
+}
+
+.onboard-input, .onboard-select, .onboard-textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1.5px solid var(--slate-200);
+  background-color: var(--slate-50);
+  color: var(--slate-900);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.onboard-input:focus, .onboard-select:focus, .onboard-textarea:focus {
+  border-color: var(--sjt-blue-600);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.onboard-textarea {
+  resize: vertical;
+  min-height: 85px;
+}
+
+/* Duty Preference Tags */
+.pref-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.pref-chip {
+  cursor: pointer;
+  user-select: none;
+}
+
+.pref-chip input {
+  display: none;
+}
+
+.pref-chip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 15px;
+  border-radius: 10px;
+  border: 1.5px solid var(--slate-200);
+  background-color: var(--slate-50);
+  color: var(--slate-700);
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.pref-chip input:checked + span {
+  background-color: #ede9fe;
+  border-color: #7c3aed;
+  color: #5b21b6;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+}
+
+/* Document Uploads Grid */
+.doc-uploads-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 640px) {
+  .doc-uploads-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+.doc-upload-box {
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  padding: 20px 16px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.doc-upload-box:hover {
+  border-color: var(--sjt-blue-600);
+  background: #eff6ff;
+  transform: translateY(-2px);
+}
+
+.doc-upload-box.has-file {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.doc-upload-box input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.doc-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  transition: all 0.2s ease;
+}
+
+.doc-upload-box:hover .doc-icon-wrap {
+  background: #dbeafe;
+  color: var(--sjt-blue-600);
+}
+
+.doc-upload-box.has-file .doc-icon-wrap {
+  background: #bbf7d0;
+  color: #15803d;
+}
+
+.doc-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--slate-900);
+}
+
+.doc-sub {
+  font-size: 0.775rem;
+  color: var(--slate-500);
+  margin-top: 3px;
+}
+
+.doc-status-badge {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: #e2e8f0;
+  color: var(--slate-600);
+  transition: all 0.2s ease;
+}
+
+.doc-upload-box.has-file .doc-status-badge {
+  background: #22c55e;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(34, 197, 94, 0.35);
+}
+
+.doc-preview-thumb {
+  width: 70px;
+  height: 52px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-top: 8px;
+  display: none;
+  border: 1px solid #86efac;
+}
+
+/* WhatsApp Submit Button */
+.btn-onboard-submit {
+  width: 100%;
+  padding: 20px 28px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 12px 30px -4px rgba(37, 211, 102, 0.55);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-onboard-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -4px rgba(37, 211, 102, 0.65);
+}
+
+.btn-onboard-submit:active {
+  transform: translateY(1px);
+}
+
+/* Onboarding Sidebar Perks */
+.onboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: 105px;
+}
+
+.sidebar-perk-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 8px 30px -6px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(226, 232, 240, 0.8);
+}
+
+.sidebar-perk-card h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--sjt-navy-950);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.perks-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.perks-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--slate-700);
+}
+
+.perks-list li strong {
+  color: var(--slate-900);
+  display: block;
+}
+
+.perk-check-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #15803d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.hub-contact-card {
+  background: linear-gradient(135deg, #07172e 0%, #0c2344 100%);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 14px 35px -6px rgba(7, 23, 46, 0.4);
+}
+
+.hub-contact-card h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.hub-contact-card p {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.hub-contact-card .btn-hub-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 18px;
+  padding: 13px;
+  background: var(--sjt-red-500);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.hub-contact-card .btn-hub-call:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* Modal Popup Confirmation */
+.onboard-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(3, 11, 23, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.onboard-modal-backdrop.active {
+  display: flex;
+}
+
+.onboard-modal-window {
+  background: #ffffff;
+  border-radius: 24px;
+  max-width: 620px;
+  width: 100%;
+  padding: 36px 32px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4);
+  position: relative;
+  animation: modalScaleUp 0.3s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes modalScaleUp {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-header-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin: 0 auto 18px auto;
+}
+
+.modal-steps-list {
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  padding: 18px 20px;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-steps-list .step-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--slate-700);
+}
+
+.modal-steps-list .step-index {
+  background: var(--sjt-navy-900);
+  color: #ffffff;
+  font-weight: 800;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.modal-copy-box {
+  background: #0f172a;
+  color: #f1f5f9;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  max-height: 140px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: 20px;
+}
+
