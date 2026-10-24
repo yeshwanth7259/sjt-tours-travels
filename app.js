@@ -12,135 +12,234 @@ document.addEventListener('DOMContentLoaded', () => {
   // Constants
   const SJT_PHONE = '919900975920';
 
-  // Comprehensive Location Database for Alphabet-by-Alphabet Autocomplete
+  // Comprehensive Location Database for Alphabet-by-Alphabet Autocomplete (All States & A-Z Cities)
   const LOCATION_DATABASE = [
+    // --- ALL 28 INDIAN STATES & UNION TERRITORIES ---
+    { name: 'Karnataka State (South India)', category: 'State Tour', icon: '🇮🇳', sub: 'Bengaluru, Mysore, Coorg, Hampi, Badami & Coastal Hubs' },
+    { name: 'Kerala State (God\'s Own Country)', category: 'State Tour', icon: '🇮🇳', sub: 'Munnar, Alleppey Backwaters, Kochi, Wayanad & Kovalam' },
+    { name: 'Tamil Nadu State (Temple Gateway)', category: 'State Tour', icon: '🇮🇳', sub: 'Chennai, Madurai, Rameshwaram, Ooty, Kodaikanal & Thanjavur' },
+    { name: 'Goa State (Sun & Beaches)', category: 'State Tour', icon: '🇮🇳', sub: 'Panaji, Calangute, Baga, Fort Aguada, Colva & Dudhsagar' },
+    { name: 'Andhra Pradesh & Telangana', category: 'State Tour', icon: '🇮🇳', sub: 'Tirupati Balaji, Hyderabad, Visakhapatnam & Vijayawada' },
+    { name: 'Rajasthan State (Royal Heritage)', category: 'State Tour', icon: '🇮🇳', sub: 'Jaipur Pink City, Udaipur Lakes, Jodhpur & Jaisalmer Desert' },
+    { name: 'Himachal Pradesh State (Himalayas)', category: 'State Tour', icon: '🇮🇳', sub: 'Shimla, Kullu, Manali Snow Valley, Dharamshala & Dalhousie' },
+    { name: 'Jammu & Kashmir & Ladakh', category: 'State Tour', icon: '🇮🇳', sub: 'Srinagar Dal Lake, Gulmarg Gondola, Pahalgam & Leh' },
+    { name: 'Uttarakhand State (Devbhoomi)', category: 'State Tour', icon: '🇮🇳', sub: 'Char Dham, Kedarnath, Badrinath, Rishikesh, Haridwar & Nainital' },
+    { name: 'Maharashtra State', category: 'State Tour', icon: '🇮🇳', sub: 'Mumbai, Pune, Lonavala, Mahabaleshwar, Shirdi & Ajanta Ellora' },
+    { name: 'Gujarat State', category: 'State Tour', icon: '🇮🇳', sub: 'Statue of Unity, Rann of Kutch, Dwarka, Somnath & Gir Forest' },
+    { name: 'Uttar Pradesh State', category: 'State Tour', icon: '🇮🇳', sub: 'Kashi Vishwanath (Varanasi), Ayodhya Ram Mandir, Agra & Mathura' },
+    { name: 'Madhya Pradesh State (Central India)', category: 'State Tour', icon: '🇮🇳', sub: 'Khajuraho Temples, Ujjain Mahakal, Bandhavgarh & Bhopal' },
+    { name: 'Odisha State', category: 'State Tour', icon: '🇮🇳', sub: 'Puri Jagannath Temple, Konark Sun Temple & Chilika Lake' },
+    { name: 'Sikkim & West Bengal', category: 'State Tour', icon: '🇮🇳', sub: 'Gangtok, Pelling, Darjeeling Tea Estates & Kolkata' },
+    { name: 'Meghalaya & Assam (North East)', category: 'State Tour', icon: '🇮🇳', sub: 'Shillong, Cherrapunji Root Bridges, Kaziranga Rhino Safari & Guwahati' },
+
+    // --- ALPHABETICAL DESTINATIONS & LOCALITIES (A - Z) ---
     // A
     { name: 'Airport - Kempegowda Bengaluru (BLR)', category: 'Airport Transfer', icon: '✈️', sub: 'Bengaluru 24/7 Flight Pickup/Drop Hub' },
-    { name: 'Agumbe (Rainforest & Sunset View)', category: 'Western Ghats', icon: '🌄', sub: '350 KM • Shimoga Ghats' },
+    { name: 'Agra (Taj Mahal & Agra Fort)', category: 'World Wonder', icon: '🕌', sub: 'UNESCO World Heritage • Golden Triangle' },
+    { name: 'Agumbe (Rainforest & Sunset View)', category: 'Western Ghats', icon: '🌄', sub: '350 KM • Shimoga Ghats & Waterfalls' },
     { name: 'Aihole & Pattadakal (UNESCO Temples)', category: 'Heritage', icon: '🛕', sub: '445 KM • Chalukya Rock Architecture' },
-    { name: 'Ananthagiri Hills', category: 'Hill Station', icon: '🌄', sub: '540 KM • Green Hills' },
+    { name: 'Alleppey / Alappuzha (Backwater Houseboats)', category: 'Kerala Waters', icon: '⛵', sub: '580 KM • Vembanad Lake & Canals' },
+    { name: 'Amritsar (Golden Temple & Wagah Border)', category: 'Pilgrimage / Punjab', icon: '🛕', sub: 'Harmandir Sahib & Jallianwala Bagh' },
+    { name: 'Ananthagiri Hills', category: 'Hill Station', icon: '🌄', sub: '540 KM • Green Hills & Nature Trails' },
+    { name: 'Ayodhya (Shri Ram Janmabhoomi Mandir)', category: 'Top Pilgrimage', icon: '🛕', sub: 'Grand Ram Mandir & Sacred Saryu Ghats' },
+    { name: 'Ahmedabad (Sabarmati & Heritage City)', category: 'Commercial City', icon: '🏙️', sub: 'Gujarat Mega City & Gandhi Ashram' },
+    { name: 'Attibele / Anekal Industrial Corridor', category: 'Bangalore South', icon: '🏭', sub: '35 KM • Hosur Border Hub' },
 
     // B
     { name: 'Bengaluru - Central / Majestic', category: 'City Centre Hub', icon: '🏙️', sub: 'Bengaluru Railway & Bus Hub' },
-    { name: 'Bellandur / Outer Ring Road (ORR)', category: 'IT Tech Park', icon: '🏢', sub: 'EcoWorld, EcoSpace & Prestige Tech' },
-    { name: 'Bandipur National Park & Tiger Reserve', category: 'Wildlife Safari', icon: '🐅', sub: '220 KM • Forest Jungle Safari' },
-    { name: 'Bannerghatta National Park', category: 'Day Outing', icon: '🦁', sub: '30 KM • Biological Park & Zoo' },
+    { name: 'Bandipur National Park & Tiger Reserve', category: 'Wildlife Safari', icon: '🐅', sub: '220 KM • Forest Jungle Safari & Chamarajanagar' },
+    { name: 'Badami Cave Temples', category: 'UNESCO Heritage', icon: '🛕', sub: '450 KM • Red Sandstone Caves & Agastya Lake' },
+    { name: 'Belur & Halebeedu (Hoysala Temples)', category: 'Heritage Wonder', icon: '🛕', sub: '220 KM • Intricate 12th Century Sculptures' },
+    { name: 'Bellandur / Outer Ring Road (ORR)', category: 'IT Tech Park', icon: '🏢', sub: 'EcoWorld, EcoSpace & Prestige Tech Parks' },
+    { name: 'Bannerghatta National Park', category: 'Day Outing', icon: '🦁', sub: '30 KM • Biological Safari, Zoo & Butterfly Park' },
     { name: 'Basavanagudi (Bull Temple & Gandhi Bazaar)', category: 'Bengaluru South', icon: '🛕', sub: 'South Bangalore Heritage & Food' },
-    { name: 'Belur & Halebeedu (Hoysala Temples)', category: 'Heritage Wonder', icon: '🛕', sub: '220 KM • Intricate Sculptures' },
-    { name: 'Badami Cave Temples', category: 'UNESCO Heritage', icon: '🛕', sub: '450 KM • Red Sandstone Caves' },
-    { name: 'BR Hills (Biligirirangana Hills)', category: 'Wildlife & Hills', icon: '🌄', sub: '175 KM • Chamarajanagar' },
+    { name: 'BR Hills (Biligirirangana Hills)', category: 'Wildlife & Hills', icon: '🌄', sub: '175 KM • Biligiriranga Swamy Temple' },
+    { name: 'Bheemeshwari (Cauvery Fishing Camp)', category: 'River Getaway', icon: '🚣', sub: '100 KM • Kaveri River Nature Camp' },
+    { name: 'Belagavi / Belgaum (Suvarna Soudha)', category: 'Commercial City', icon: '🏙️', sub: '500 KM • North Karnataka Border' },
+    { name: 'Bhopal & Sanchi Stupa', category: 'Heritage / MP', icon: '🏛️', sub: 'City of Lakes & Ancient Buddhist Stupas' },
+    { name: 'Bhubaneswar (Temple City of India)', category: 'Odisha Hub', icon: '🛕', sub: 'Lingaraj Temple, Dhauli & Udayagiri' },
 
     // C
-    { name: 'Coorg (Madikeri / Kushalnagar)', category: 'Top Hill Station', icon: '🌄', sub: '265 KM • Coffee Estates, Abbey Falls & Raja Seat' },
-    { name: 'Chikmagalur (Mullayanagiri Peak)', category: 'Top Hill Station', icon: '🌄', sub: '245 KM • Highest Peak, Coffee & Waterfalls' },
-    { name: 'Chennai (Central & Marina Beach)', category: 'Metropolitan', icon: '🏙️', sub: '350 KM • Tamil Nadu' },
-    { name: 'Coimbatore & Isha Yoga Center', category: 'Spiritual / City', icon: '🛕', sub: '365 KM • 112ft Adiyogi & Western Ghats' },
-    { name: 'Coonoor (Nilgiri Hills)', category: 'Hill Station', icon: '🌄', sub: '290 KM • Sim’s Park & Tea Plantations' },
+    { name: 'Coorg (Madikeri / Kushalnagar)', category: 'Top Hill Station', icon: '☕', sub: '265 KM • Coffee Estates, Abbey Falls & Raja\'s Seat' },
+    { name: 'Chikmagalur (Mullayanagiri Peak)', category: 'Top Hill Station', icon: '🌄', sub: '245 KM • Highest Karnataka Peak & Waterfalls' },
+    { name: 'Chennai (Central & Marina Beach)', category: 'Metropolitan', icon: '🏙️', sub: '350 KM • Tamil Nadu Capital Hub' },
+    { name: 'Coimbatore & Isha Adiyogi Center', category: 'Spiritual / City', icon: '🛕', sub: '365 KM • 112ft Adiyogi & Western Ghats' },
+    { name: 'Coonoor (Nilgiri Hills & Tea Gardens)', category: 'Hill Station', icon: '🌄', sub: '290 KM • Sim’s Park & Dolphin’s Nose' },
     { name: 'Chitradurga Fort (Kallina Kote)', category: 'Historic Fort', icon: '🏰', sub: '200 KM • Seven-Ring Stone Citadel' },
-    { name: 'Chamundi Hills & Nandi Bull', category: 'Heritage Hill', icon: '🛕', sub: '150 KM • Mysore Viewpoint' },
+    { name: 'Chamundi Hills & Nandi Monolith', category: 'Heritage Hill', icon: '🛕', sub: '150 KM • Chamundeshwari Temple Viewpoint' },
+    { name: 'Calicut / Kozhikode Beach', category: 'Kerala Coast', icon: '🌊', sub: '360 KM • Malabar Coast & Culinary Paradise' },
+    { name: 'Cochin / Kochi Fort & Marine Drive', category: 'Coastal Heritage', icon: '⚓', sub: '530 KM • Chinese Fishing Nets & Mattancherry' },
+    { name: 'Chandigarh (Rock Garden & Sukhna Lake)', category: 'Northern Hub', icon: '🏙️', sub: 'Himachal Gateway & Le Corbusier City' },
 
     // D
-    { name: 'Dharmasthala (Lord Manjunatha Temple)', category: 'Temple Pilgrimage', icon: '🛕', sub: '300 KM • Sacred Coastal Karnataka' },
-    { name: 'Dandeli (River Rafting & Jungle Camps)', category: 'Adventure', icon: '🚣', sub: '460 KM • Kali River Rapids' },
-    { name: 'Davangere (Benne Dosa Capital)', category: 'Commercial City', icon: '🏙️', sub: '260 KM • Central Karnataka' },
-    { name: 'Devanahalli (Near Kempegowda Airport)', category: 'North Bangalore', icon: '🏙️', sub: 'Airport Corridor Hub' },
+    { name: 'Dharmasthala (Lord Manjunatha Temple)', category: 'Temple Pilgrimage', icon: '🛕', sub: '300 KM • Sacred Coastal Karnataka Shrine' },
+    { name: 'Dandeli (River Rafting & Jungle Camps)', category: 'Adventure', icon: '🚣', sub: '460 KM • Kali River Rapids & Hornbill Valley' },
+    { name: 'Davangere (Benne Dosa Capital)', category: 'Commercial City', icon: '🏙️', sub: '260 KM • Central Karnataka Gateway' },
+    { name: 'Devanahalli (Kempegowda Airport Hub)', category: 'North Bangalore', icon: '🏙️', sub: 'Airport Expressway & Tech Corridor' },
+    { name: 'Delhi NCR (India Gate, Red Fort & Qutub)', category: 'Capital Territory', icon: '🏛️', sub: 'National Capital Hub & Historic Monuments' },
+    { name: 'Dehradun (Doon Valley & Tapkeshwar)', category: 'Uttarakhand Hub', icon: '🌄', sub: 'Garhwal Gateway & Forest Research Institute' },
+    { name: 'Dharamshala & McLeodGanj (Dalai Lama)', category: 'Himachal Hills', icon: '🏔️', sub: 'Dhauladhar Ranges & Tibetan Culture' },
+    { name: 'Doddaballapura Industrial Area', category: 'North Bangalore', icon: '🏭', sub: '40 KM • Industrial Corridor Hub' },
 
     // E
-    { name: 'Electronic City (Phase 1 & 2)', category: 'IT Tech Hub', icon: '🏢', sub: 'Infosys, Wipro, Tech Corridors' },
+    { name: 'Electronic City (Phase 1 & Phase 2)', category: 'IT Tech Hub', icon: '🏢', sub: 'Infosys, Wipro, Tech Corridors & Elevated HW' },
+    { name: 'Ernakulam / Kochi CBD', category: 'Kerala Metro', icon: '🏙️', sub: 'Commercial Heart of Kerala' },
+    { name: 'Erode & Bhavani Sangameshwarar', category: 'Industrial / Temple', icon: '🛕', sub: '280 KM • Textile Hub & River Confluence' },
+    { name: 'Ellora & Ajanta Caves (Aurangabad)', category: 'UNESCO Wonder', icon: '🛕', sub: 'Kailash Temple Monolith & Ancient Murals' },
 
     // F
-    { name: 'Frazer Town / Cantonment', category: 'Bengaluru Central', icon: '🏙️', sub: 'Colonial Bangalore & Food Street' },
+    { name: 'Frazer Town / Pulikeshi Nagar', category: 'Bengaluru Central', icon: '🏙️', sub: 'Colonial Bangalore & Mosque Road Food Hub' },
+    { name: 'Fatehpur Sikri (Buland Darwaza)', category: 'Mughal Heritage', icon: '🏰', sub: 'UNESCO Red Sandstone Citadel near Agra' },
+    { name: 'Faridabad Industrial Hub', category: 'NCR Region', icon: '🏭', sub: 'Delhi NCR Commercial Corridor' },
 
     // G
-    { name: 'Gokarna (Om Beach & Kudle Beach)', category: 'Coastal Beaches', icon: '🏖️', sub: '485 KM • Arabian Sea Paradise' },
-    { name: 'Goa (Panaji, Calangute, Baga & South Goa)', category: 'Beach Holiday', icon: '🏖️', sub: '560 KM • Sun, Sand & Sea' },
+    { name: 'Gokarna (Om Beach, Kudle & Mahabaleshwar)', category: 'Coastal Beaches', icon: '🏖️', sub: '485 KM • Arabian Sea Paradise & Atmalinga' },
+    { name: 'Goa (Panaji, Calangute, Baga & South Goa)', category: 'Beach Holiday', icon: '🏖️', sub: '560 KM • Sun, Sand, Forts & Dudhsagar' },
+    { name: 'Gangtok (Tsomgo Lake & Kanchenjunga View)', category: 'Sikkim Hills', icon: '🏔️', sub: 'Himalayan Buddhist Monasteries & MG Marg' },
+    { name: 'Gandhinagar & Akshardham', category: 'Gujarat Capital', icon: '🛕', sub: 'Green Capital & Monumental Mandir' },
+    { name: 'Gulbarga / Kalaburagi (Khwaja Bande Nawaz)', category: 'North Karnataka', icon: '🏰', sub: '580 KM • Bahmani Fort & Heritage Shrine' },
+    { name: 'Gurugram / Cyber City (Cyber Hub)', category: 'Corporate Hub', icon: '🏢', sub: 'NCR Global Tech Parks & Expressway' },
+    { name: 'Gwalior Fort & Jai Vilas Palace', category: 'Royal Fort', icon: '🏰', sub: 'Madhya Pradesh Hilltop Citadel' },
 
     // H
-    { name: 'Hampi (UNESCO World Heritage Ruins)', category: 'Historic Wonder', icon: '🏛️', sub: '340 KM • Vijayanagara Empire Citadel' },
-    { name: 'Hebbal / Manyata Tech Park', category: 'Tech Park Hub', icon: '🏢', sub: 'North Bangalore Tech Corridor' },
-    { name: 'Hassan (Hoysala Gateway)', category: 'Heritage Gateway', icon: '🏙️', sub: '180 KM • South Karnataka' },
-    { name: 'Hogenakkal Falls', category: 'Waterfalls', icon: '🌊', sub: '180 KM • Niagara of India & Coracle Rides' },
-    { name: 'Horanadu (Annapoorneshwari Temple)', category: 'Temple Pilgrimage', icon: '🛕', sub: '310 KM • Western Ghats Valley' },
-    { name: 'Hosur Industrial Hub', category: 'Industrial Corridor', icon: '🏭', sub: '40 KM • Bangalore Border' },
-    { name: 'Hyderabad (Cyberabad & Charminar)', category: 'Metro Outstation', icon: '🏙️', sub: '570 KM • Telangana Capital' },
+    { name: 'Hampi (UNESCO World Heritage Citadel)', category: 'Historic Wonder', icon: '🏛️', sub: '340 KM • Vijayanagara Stone Chariot & Tungabhadra' },
+    { name: 'Hebbal / Manyata Tech Park', category: 'Tech Park Hub', icon: '🏢', sub: 'North Bangalore Tech Corridor & Flyover' },
+    { name: 'Hassan (Hoysala Gateway & Gorur Dam)', category: 'Heritage Gateway', icon: '🏙️', sub: '180 KM • Belur-Halebeedu Junction' },
+    { name: 'Hogenakkal Falls (Niagara of India)', category: 'Waterfalls', icon: '🌊', sub: '180 KM • Kaveri River & Coracle Rides' },
+    { name: 'Horanadu (Annapoorneshwari Temple)', category: 'Temple Pilgrimage', icon: '🛕', sub: '310 KM • Western Ghats Sacred Valley' },
+    { name: 'Hosur Industrial Hub & Border', category: 'Industrial Corridor', icon: '🏭', sub: '40 KM • Bangalore-Tamil Nadu Border' },
+    { name: 'Hyderabad (Charminar, Hitec City & Golconda)', category: 'Metro Outstation', icon: '🏙️', sub: '570 KM • Cyberabad & Biryani Capital' },
+    { name: 'Haridwar (Har Ki Pauri & Ganga Aarti)', category: 'Holy Pilgrimage', icon: '🌊', sub: 'Sacred Gateway to Himalayas & Kumbh City' },
+    { name: 'Hubli / Hubballi & Dharwad', category: 'Commercial City', icon: '🏙️', sub: '410 KM • North Karnataka Commercial Nerve' },
 
     // I
-    { name: 'Indiranagar / 100ft Road', category: 'Bengaluru Central', icon: '🏙️', sub: 'Central Business & Dining District' },
-    { name: 'Isha Foundation (Chikkaballapura)', category: 'Spiritual Center', icon: '🛕', sub: '65 KM • 112ft Adiyogi Bangalore' },
+    { name: 'Indiranagar / 100ft Road / CMH Road', category: 'Bengaluru Central', icon: '🏙️', sub: 'Central Business, Lifestyle & Dining Hub' },
+    { name: 'Isha Foundation (Chikkaballapura)', category: 'Spiritual Center', icon: '🛕', sub: '65 KM • 112ft Adiyogi Statue Bangalore' },
+    { name: 'Indore & Sarafa Bazaar (Cleanest City)', category: 'Madhya Pradesh', icon: '🏙️', sub: 'Rajwada Palace & Famous Food Street' },
 
     // J
-    { name: 'Jog Falls (Gerosoppa Cataracts)', category: 'Waterfalls', icon: '🌊', sub: '380 KM • Second Highest Plunge Falls' },
-    { name: 'Jayanagar / JP Nagar / Banashankari', category: 'South Bengaluru', icon: '🏙️', sub: 'South Bangalore Residential & Commercial' },
+    { name: 'Jog Falls (Gerosoppa Plunge Cascades)', category: 'Waterfalls', icon: '🌊', sub: '380 KM • Second Highest Plunge Falls in India' },
+    { name: 'Jayanagar / JP Nagar / Banashankari', category: 'South Bengaluru', icon: '🏙️', sub: 'Traditional Bangalore & Kanakapura Corridor' },
+    { name: 'Jaipur (Pink City, Amber Fort & Hawa Mahal)', category: 'Royal Rajasthan', icon: '🏰', sub: 'Golden Triangle & Royal Palaces' },
+    { name: 'Jodhpur (Blue City & Mehrangarh Fort)', category: 'Royal Rajasthan', icon: '🏰', sub: 'Umaid Bhawan & Majestic Desert Citadel' },
+    { name: 'Jaisalmer (Golden City & Sam Sand Dunes)', category: 'Desert Safari', icon: '🏜️', sub: 'Thar Desert Camel Safari & Living Fort' },
+    { name: 'Jammu & Katra (Mata Vaishno Devi Shrine)', category: 'Holy Shrine', icon: '🛕', sub: 'Trikuta Hills Pilgrimage & Base Camp' },
 
     // K
     { name: 'Kodaikanal (Lake, Pillar Rocks & Coaker’s Walk)', category: 'Princess of Hills', icon: '🌄', sub: '465 KM • Misty Lake & Pine Forests' },
     { name: 'Kukke Subramanya Temple', category: 'Pilgrimage Shrine', icon: '🛕', sub: '280 KM • Sacred Western Ghats Snake Temple' },
-    { name: 'Kabini & Nagarhole National Park', category: 'Jungle Safari', icon: '🐅', sub: '215 KM • Tiger, Elephant & Leopard Reserve' },
-    { name: 'Koramangala / HSR Layout', category: 'Bengaluru Tech', icon: '🏢', sub: 'Startup, Retail & Food Corridor' },
-    { name: 'Kudremukh (Peak Trek & Shola Forests)', category: 'Trekking & Hills', icon: '🌄', sub: '330 KM • Western Ghats Green Peak' },
-    { name: 'Kolar Gold Fields (KGF)', category: 'Historic Site', icon: '⛏️', sub: '100 KM • East Karnataka Gold Mines' },
+    { name: 'Kabini & Nagarhole National Park', category: 'Jungle Safari', icon: '🐅', sub: '215 KM • Tiger, Leopard & Elephant Safari' },
+    { name: 'Koramangala / HSR Layout', category: 'Bengaluru Tech', icon: '🏢', sub: 'Startup, Retail & Global IT Corridor' },
+    { name: 'Kudremukh (Peak Trek & Shola Grasslands)', category: 'Trekking & Hills', icon: '🌄', sub: '330 KM • Horse-Face Peak Western Ghats' },
+    { name: 'Kolar Gold Fields (KGF) & Kotilingeshwara', category: 'Historic Site', icon: '⛏️', sub: '100 KM • Historic Mines & 1 Crore Shiva Lingas' },
+    { name: 'Kanyakumari (Triveni Sangam & Vivekananda Rock)', category: 'Southern Tip', icon: '🌊', sub: '680 KM • Sunrise-Sunset Confluence of 3 Oceans' },
+    { name: 'Kedarnath Dham (Sacred Jyotirlinga)', category: 'Himalayan Yatra', icon: '🛕', sub: 'Lord Shiva Shrine at 3,584m Altitude' },
+    { name: 'Kashi / Varanasi (Vishwanath & Ganga Aarti)', category: 'Eternal City', icon: '🛕', sub: 'Oldest Living City & Kashi Vishwanath Corridor' },
+    { name: 'Katra / Vaishno Devi Darshan', category: 'Sacred Cave', icon: '🛕', sub: 'Bhavan Darshan, Ardhkuwari & Bhairon Ghati' },
+    { name: 'Khajuraho (UNESCO Temples of Love)', category: 'World Heritage', icon: '🛕', sub: 'Chandel Dynasty Intricate Stone Sculptures' },
+    { name: 'Kolkata (Howrah Bridge & Victoria Memorial)', category: 'City of Joy', icon: '🏛️', sub: 'Cultural Capital & Hooghly River' },
 
     // L
-    { name: 'Lepakshi (Veerabhadra Temple & Nandi)', category: 'Historic Heritage', icon: '🛕', sub: '120 KM • Hanging Pillar & Monolith' },
-    { name: 'Lalbagh Botanical Garden', category: 'Bengaluru Landmark', icon: '🌿', sub: 'Glass House & 240 Acres Greenery' },
+    { name: 'Lepakshi (Veerabhadra Temple & Monolithic Nandi)', category: 'Historic Heritage', icon: '🛕', sub: '120 KM • Hanging Pillar & Vijayanagara Art' },
+    { name: 'Lalbagh Botanical Garden & Glass House', category: 'Bengaluru Landmark', icon: '🌿', sub: '240-Acre Heritage Botanical Garden' },
+    { name: 'Leh Ladakh (Pangong Lake & Khardung La Pass)', category: 'High Altitude Desert', icon: '🏔️', sub: 'Highest Motorable Roads & Monasteries' },
+    { name: 'Lonavala & Khandala (Tiger\'s Leap)', category: 'Hill Station / MH', icon: '🌄', sub: 'Sahyadri Hills, Bhushi Dam & Chikki' },
+    { name: 'Lucknow (Bara Imambara & Nawabi Heritage)', category: 'Cultural Capital', icon: '🏛️', sub: 'Chikan Craft, Awadhi Food & Gomti River' },
 
     // M
-    { name: 'Mysore (Grand Palace & Chamundi Hills)', category: 'Heritage City', icon: '🏰', sub: '145 KM • 10-Lane Expressway (~2 Hrs)' },
-    { name: 'Murudeshwar (Giant Shiva Statue & Beach)', category: 'Coastal Pilgrimage', icon: '🛕', sub: '490 KM • Seafront Monument' },
-    { name: 'Mangalore (Panambur Beach & Temples)', category: 'Coastal Port City', icon: '🌊', sub: '350 KM • Coastal Karnataka' },
-    { name: 'Munnar (Tea Gardens & Eravikulam)', category: 'Kerala Hills', icon: '🌄', sub: '475 KM • Anamudi & Misty Slopes' },
-    { name: 'Madurai (Meenakshi Amman Temple)', category: 'Heritage Pilgrimage', icon: '🛕', sub: '435 KM • Ancient Temple City' },
-    { name: 'Mahabalipuram (Shore Temples & Monoliths)', category: 'Coastal UNESCO', icon: '🏛️', sub: '380 KM • Bay of Bengal' },
-    { name: 'Manyata Tech Park (Nagavara)', category: 'Corporate IT Hub', icon: '🏢', sub: 'North Bengaluru IT Park' },
-    { name: 'Malleshwaram / Rajajinagar', category: 'North-West Hub', icon: '🏙️', sub: 'Traditional Bengaluru Hub' },
-    { name: 'Marathahalli / HAL', category: 'East Bengaluru', icon: '🏢', sub: 'Old Airport Road Corridor' },
+    { name: 'Mysore / Mysuru (Grand Palace & Chamundi Hills)', category: 'Heritage City', icon: '🏰', sub: '145 KM • 10-Lane Expressway (~2 Hrs Drive)' },
+    { name: 'Munnar (Tea Gardens, Mattupetty & Eravikulam)', category: 'Kerala Hills', icon: '🌄', sub: '475 KM • Anamudi Peak & Misty Slopes' },
+    { name: 'Manali (Solang Valley, Rohtang & Atal Tunnel)', category: 'Himachal Snow', icon: '🏔️', sub: 'Snow Capped Peaks & Beas River Valley' },
+    { name: 'Madurai (Meenakshi Amman Temple)', category: 'Heritage Pilgrimage', icon: '🛕', sub: '435 KM • Ancient 2500-Year Temple City' },
+    { name: 'Mumbai (Gateway of India, Marine Drive & Bandra)', category: 'Metropolitan', icon: '🏙️', sub: 'Commercial Capital & Arabian Sea Promenade' },
+    { name: 'Mangalore / Mangaluru (Panambur & Tannirbhavi)', category: 'Coastal Port City', icon: '🌊', sub: '350 KM • Coastal Karnataka & Seafood' },
+    { name: 'Murudeshwar (Giant Shiva Statue & Beach)', category: 'Coastal Pilgrimage', icon: '🛕', sub: '490 KM • Seafront Monument & Raja Gopura' },
+    { name: 'Mahabalipuram (Shore Temples & Five Rathas)', category: 'Coastal UNESCO', icon: '🏛️', sub: '380 KM • Bay of Bengal Monoliths' },
+    { name: 'Mussoorie (Queen of Hills, Kempty Falls)', category: 'Hill Station', icon: '🌄', sub: 'Gun Hill, Mall Road & Doon Valley Views' },
+    { name: 'Mathura & Vrindavan (Krishna Janmabhoomi)', category: 'Sacred Braj', icon: '🛕', sub: 'Bankey Bihari Mandir & Yamuna Ghats' },
+    { name: 'Mount Abu (Dilwara Jain Temples & Nakki Lake)', category: 'Rajasthan Hills', icon: '🌄', sub: 'Only Hill Station in Rajasthan' },
+    { name: 'Manyata Tech Park (Nagavara)', category: 'Corporate IT Hub', icon: '🏢', sub: 'North Bengaluru IT Park & Outer Ring Road' },
+    { name: 'Malleshwaram / Rajajinagar', category: 'North-West Hub', icon: '🏙️', sub: 'Traditional Bengaluru Commercial Corridor' },
+    { name: 'Marathahalli / HAL Airport Road', category: 'East Bengaluru', icon: '🏢', sub: 'IT Corridor & Ring Road Junction' },
+    { name: 'Mandya (Sugar City & Srirangapatna Route)', category: 'Expressway Hub', icon: '🏙️', sub: '100 KM • Bangalore-Mysore Expressway' },
+    { name: 'Madikeri (Coorg Capital & Raja\'s Tomb)', category: 'Coorg Heart', icon: '☕', sub: '260 KM • Western Ghats Coffee Town' },
 
     // N
-    { name: 'Nandi Hills (Sunrise Viewpoint)', category: 'Quick Getaway', icon: '🌄', sub: '60 KM • Early Morning Cloud Walk' },
-    { name: 'Nagarhole National Park', category: 'Wildlife Reserve', icon: '🐅', sub: '220 KM • Kabini Forest Safari' },
+    { name: 'Nandi Hills (Sunrise Cloud Walk)', category: 'Quick Getaway', icon: '🌄', sub: '60 KM • Early Morning Tipu\'s Drop Viewpoint' },
+    { name: 'Nagarhole National Park (Kabini Reserve)', category: 'Wildlife Reserve', icon: '🐅', sub: '220 KM • Dense Teak Forests & Safari' },
+    { name: 'Nagasandra BGS Layout (SJT Registered Hub)', category: 'Head Office', icon: '📍', sub: 'Sharanappa, # 101 BGS Layout, Near Narasappa Circle, Bangalore-560073' },
+    { name: 'Nainital (Lake District & Naini Peak)', category: 'Kumaon Hills', icon: '⛵', sub: 'Emerald Naini Lake, Mall Road & Himalayan Views' },
+    { name: 'Nashik & Trimbakeshwar Jyotirlinga', category: 'Pilgrimage / Wine', icon: '🛕', sub: 'Godavari River Ghats & Vineyards' },
 
     // O
-    { name: 'Ooty (Queen of Hill Stations & Botanical Garden)', category: 'Queen of Hills', icon: '🌄', sub: '275 KM • 36 Hairpin Bends & Toy Train' },
-    { name: 'Outer Ring Road (Marathahalli to Sarjapur)', category: 'Corporate Hub', icon: '🏢', sub: 'Tech Corridor Hub' },
+    { name: 'Ooty (Queen of Hill Stations & Botanical Garden)', category: 'Queen of Hills', icon: '🌄', sub: '275 KM • 36 Hairpin Bends & Nilgiri Toy Train' },
+    { name: 'Outer Ring Road (Marathahalli to Sarjapur)', category: 'Corporate Hub', icon: '🏢', sub: 'Bellandur & Tech Corridor Hub' },
+    { name: 'Orchha Fort & Ram Raja Temple', category: 'Historic / MP', icon: '🏰', sub: 'Betwa River & Bundela Dynasty Palaces' },
 
     // P
-    { name: 'Pondicherry (French Colony & Rock Beach)', category: 'Coastal Heritage', icon: '🏖️', sub: '310 KM • Promenade & Auroville' },
-    { name: 'Peenya Industrial Hub / Tumkur Road', category: 'North-West Hub', icon: '🏭', sub: 'Near SJT Registered Operations' },
+    { name: 'Pondicherry / Puducherry (French White Town)', category: 'Coastal Heritage', icon: '🏖️', sub: '310 KM • Promenade Beach & Auroville' },
+    { name: 'Peenya Industrial Hub / Tumkur Road', category: 'North-West Hub', icon: '🏭', sub: 'Near SJT Registered Operations Desk' },
+    { name: 'Pune (IT Hub & Shaniwar Wada)', category: 'Maharashtra Hub', icon: '🏙️', sub: 'Oxford of the East & Sinhagad Fort' },
+    { name: 'Puri (Lord Jagannath Temple & Golden Beach)', category: 'Char Dham East', icon: '🛕', sub: 'Grand Jagannath Temple & Blue Flag Beach' },
+    { name: 'Pushkar (Lord Brahma Temple & Sacred Lake)', category: 'Spiritual Rajasthan', icon: '🛕', sub: 'Only Brahma Temple & Desert Fair' },
+    { name: 'Pahalgam (Valley of Shepherds & Betaab Valley)', category: 'Kashmir Valley', icon: '🌲', sub: 'Lidder River, Baisaran Meadow & Pine Forests' },
+
+    // Q
+    { name: 'Qutub Minar & Mehrauli Heritage', category: 'Delhi Landmark', icon: '🏛️', sub: '73m Victory Tower & UNESCO Complex' },
 
     // R
-    { name: 'Rameshwaram (Pamban Bridge & Dham)', category: 'Sacred Island', icon: '🛕', sub: '600 KM • Ramanathaswamy Temple' },
-    { name: 'Rajajinagar / Yeshwanthpur', category: 'North-West Hub', icon: '🏙️', sub: 'Metro & Railway Junction' },
+    { name: 'Rameshwaram (Pamban Bridge & 22 Theerthams)', category: 'Sacred Island', icon: '🛕', sub: '600 KM • Ramanathaswamy Temple & Dhanushkodi' },
+    { name: 'Rishikesh (Yoga Capital of the World & Ganga)', category: 'Spiritual Adventure', icon: '🌊', sub: 'Ram Jhula, Lakshman Jhula & River Rafting' },
+    { name: 'Rajajinagar / Yeshwanthpur Junction', category: 'North-West Hub', icon: '🏙️', sub: 'Metro & Major Railway Terminal' },
+    { name: 'Ranthambore National Park (Royal Bengal Tiger)', category: 'Tiger Safari', icon: '🐅', sub: 'Ancient Ranthambore Fort & Jeep Safari' },
 
     // S
-    { name: 'Sakleshpur (Coffee Hills & Railway Trek)', category: 'Nature Getaway', icon: '🌄', sub: '220 KM • Green Western Ghats' },
-    { name: 'Shravanabelagola (Bahubali Monolith)', category: 'Jain Heritage', icon: '🛕', sub: '140 KM • 57ft Monolithic Statue' },
-    { name: 'Srirangapatna (Tipu Sultan Palace)', category: 'Historic Island', icon: '🏰', sub: '125 KM • Kaveri River Island Fort' },
-    { name: 'Sringeri (Sharada Peetham)', category: 'Sacred Pilgrimage', icon: '🛕', sub: '320 KM • River Tunga Ghats' },
-    { name: 'Shimoga / Shivamogga', category: 'Malnad Gateway', icon: '🏙️', sub: '300 KM • Central Western Karnataka' },
-    { name: 'Shivanasamudra Falls (Barachukki & Gaganachukki)', category: 'Twin Waterfalls', icon: '🌊', sub: '135 KM • Kaveri Cascades' },
+    { name: 'Sakleshpur (Bisle Ghat & Railway Bridge Trek)', category: 'Nature Getaway', icon: '🌄', sub: '220 KM • Green Western Ghats & Coffee Hills' },
+    { name: 'Shravanabelagola (57ft Bahubali Gommateshwara)', category: 'Jain Heritage', icon: '🛕', sub: '140 KM • Monolithic Granite Wonder' },
+    { name: 'Srirangapatna (Tipu Sultan Palace & Temple)', category: 'Historic Island', icon: '🏰', sub: '125 KM • Kaveri River Island Citadel' },
+    { name: 'Sringeri (Sharada Peetham on Tunga River)', category: 'Sacred Pilgrimage', icon: '🛕', sub: '320 KM • Adi Shankaracharya Peetham' },
+    { name: 'Shimoga / Shivamogga (Malnad Gateway)', category: 'Malnad Gateway', icon: '🏙️', sub: '300 KM • Central Western Karnataka' },
+    { name: 'Shivanasamudra Falls (Barachukki & Gaganachukki)', category: 'Twin Waterfalls', icon: '🌊', sub: '135 KM • Kaveri Gorge & Cascades' },
+    { name: 'Srinagar (Dal Lake Houseboat & Mughal Gardens)', category: 'Kashmir Paradise', icon: '❄️', sub: 'Shikara Boat Rides & Shankaracharya Hill' },
+    { name: 'Shimla (Ridge, Mall Road & Jakhoo Temple)', category: 'Himachal Capital', icon: '🏔️', sub: 'Colonial Summer Capital & Kufri Snow' },
+    { name: 'Shirdi (Sai Baba Samadhi Mandir)', category: 'Top Pilgrimage', icon: '🛕', sub: 'Shri Saibaba Sansthan & Shani Shingnapur' },
+    { name: 'Somnath Temple (First Jyotirlinga of Lord Shiva)', category: 'Sacred Coastal', icon: '🛕', sub: 'Gujarat Arabian Sea Monumental Temple' },
 
     // T
-    { name: 'Nagasandra BGS Layout (SJT Registered Hub)', category: 'Head Office', icon: '📍', sub: 'Sharanappa, # 101 BGS Layout, Near Narasappa Circle, Bangalore-560073' },
-    { name: 'Tirupati (Lord Balaji Temple)', category: 'Top Pilgrimage', icon: '🛕', sub: '250 KM • Seven Hills of Tirumala' },
-    { name: 'Thiruvannamalai (Arunachaleswarar Temple)', category: 'Holy Mountain', icon: '🛕', sub: '200 KM • Agni Lingam Pilgrimage' },
-    { name: 'Thanjavur (Brihadeeswarar Big Temple)', category: 'UNESCO Chola Temple', icon: '🛕', sub: '390 KM • 1000-Year Architectural Wonder' },
-    { name: 'Tumkur / Tumakuru Smart City', category: 'Industrial Hub', icon: '🏙️', sub: '70 KM • North Karnataka Gateway' },
+    { name: 'Tirupati (Lord Venkateswara Balaji Temple)', category: 'Top Pilgrimage', icon: '🛕', sub: '250 KM • Sacred Seven Hills of Tirumala' },
+    { name: 'Thiruvannamalai (Arunachaleswarar Temple)', category: 'Holy Mountain', icon: '🛕', sub: '200 KM • Agni Lingam & Giri Pradakshina' },
+    { name: 'Thanjavur (Brihadeeswarar UNESCO Big Temple)', category: 'Chola Heritage', icon: '🛕', sub: '390 KM • 1000-Year Architectural Marvel' },
+    { name: 'Tumkur / Tumakuru Smart City', category: 'Industrial Hub', icon: '🏙️', sub: '70 KM • North Karnataka Gateway & Devarayanadurga' },
+    { name: 'Thekkady (Periyar Lake Tiger Reserve)', category: 'Wildlife Sanctuary', icon: '🐅', sub: '510 KM • Jungle Boat Safari & Cardamom Hills' },
+    { name: 'Trivandrum / Thiruvananthapuram (Padmanabha)', category: 'Kerala Capital', icon: '🛕', sub: 'Sree Padmanabhaswamy Temple & Kovalam' },
 
     // U
-    { name: 'Udupi (Krishna Mutt & Malpe Beach)', category: 'Coastal Temple', icon: '🛕', sub: '400 KM • St. Mary’s Island' },
+    { name: 'Udupi (Sri Krishna Mutt & Malpe Beach)', category: 'Coastal Temple', icon: '🛕', sub: '400 KM • St. Mary’s Basalt Island' },
+    { name: 'Udaipur (City of Lakes & Lake Pichola)', category: 'Romantic Heritage', icon: '🏰', sub: 'City Palace, Jagdish Temple & Saheliyon ki Bari' },
+    { name: 'Ujjain (Mahakaleshwar Jyotirlinga)', category: 'Sacred City', icon: '🛕', sub: 'Kshipra River, Bhasma Aarti & Kumbh City' },
 
     // V
-    { name: 'Vijayapura / Bijapur (Gol Gumbaz)', category: 'Historic Citadel', icon: '🏛️', sub: '530 KM • Whispering Gallery' },
-    { name: 'Vidhana Soudha & Cubbon Park', category: 'Bengaluru Heart', icon: '🏛️', sub: 'Legislative Capitol & Green Lung' },
+    { name: 'Vijayapura / Bijapur (Gol Gumbaz)', category: 'Historic Citadel', icon: '🏛️', sub: '530 KM • World’s 2nd Largest Whispering Dome' },
+    { name: 'Vidhana Soudha & Cubbon Park', category: 'Bengaluru Heart', icon: '🏛️', sub: 'Legislative Capitol & 300-Acre Green Lung' },
+    { name: 'Varanasi / Kashi (Vishwanath Corridor)', category: 'Eternal City', icon: '🛕', sub: 'Ganga Dashashwamedh Ghat & Banaras' },
+    { name: 'Visakhapatnam / Vizag & Araku Valley', category: 'Coastal Hills', icon: '🌊', sub: 'RK Beach, Borra Caves & Coffee Valleys' },
+    { name: 'Vijayawada (Kanakadurga Temple)', category: 'Krishna River', icon: '🛕', sub: 'Indrakeeladri Hill & Prakasam Barrage' },
+    { name: 'Vellore (Golden Sripuram Temple & Fort)', category: 'Tamil Nadu Hub', icon: '🛕', sub: '215 KM • Pure Gold Lakshmi Narayani Temple' },
+    { name: 'Varkala (Papanasam Cliff Beach)', category: 'Kerala Cliffs', icon: '🏖️', sub: 'Arabian Sea Red Cliffs & Natural Springs' },
+    { name: 'Vrindavan (Bankey Bihari & Prem Mandir)', category: 'Braj Bhoomi', icon: '🛕', sub: 'ISKCON Krishna Balaram & Nidhivan' },
 
     // W
-    { name: 'Wayanad (Banasura Dam & Chembra Peak)', category: 'Kerala Hills', icon: '🌄', sub: '280 KM • Tea, Coffee & Waterfalls' },
-    { name: 'Whitefield (ITPL & EPIP Zone)', category: 'Corporate IT Hub', icon: '🏢', sub: 'East Bangalore Tech Hub' },
+    { name: 'Wayanad (Banasura Dam, Chembra & Edakkal)', category: 'Kerala Hills', icon: '🌄', sub: '280 KM • Coffee, Tea & Heart Lake Trek' },
+    { name: 'Whitefield (ITPL & EPIP Zone)', category: 'Corporate IT Hub', icon: '🏢', sub: 'East Bangalore Tech Hub & Metro Line' },
 
     // Y
-    { name: 'Yercaud (Shevaroy Hills & Lake)', category: 'Hill Station', icon: '🌄', sub: '230 KM • Salem Hills' },
-    { name: 'Yelagiri (Green Valley Hills)', category: 'Weekend Outing', icon: '🌄', sub: '160 KM • Boating & Green Valleys' },
-    { name: 'Yelahanka New Town', category: 'North Bengaluru', icon: '🏙️', sub: 'Airport Road Hub' }
+    { name: 'Yercaud (Shevaroy Hills, Lake & Anna Park)', category: 'Hill Station', icon: '🌄', sub: '230 KM • Jewel of the South / Salem Hills' },
+    { name: 'Yelagiri (Green Valley & Punganur Lake)', category: 'Weekend Outing', icon: '🌄', sub: '160 KM • Boating, Nature Park & Hills' },
+    { name: 'Yelahanka New Town & Airport Corridor', category: 'North Bengaluru', icon: '🏙️', sub: 'Kempegowda Airport Gateway' },
+    { name: 'Yeshwanthpur (Metro & Railway Terminal)', category: 'North-West Hub', icon: '🚆', sub: 'Major Transit Hub near Nagasandra' },
+
+    // Z
+    { name: 'Ziro Valley (Pine Hills & Apatani Tribe)', category: 'Arunachal Hills', icon: '🌿', sub: 'UNESCO Cultural Landscape & Green Terraces' }
   ];
 
   // Vehicle Rates Matrix (For WhatsApp and Slip Generation)
@@ -529,30 +628,12 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
 
       const pickup = pickupInput?.value.trim() || 'Bengaluru';
-      const drop = dropInput?.value.trim();
-      const travelDate = travelDateInput?.value;
-      const returnDate = returnDateInput?.value;
+      const drop = dropInput?.value.trim() || 'Outstation Sightseeing / Tour';
+      const travelDate = travelDateInput?.value || new Date().toISOString().split('T')[0];
+      const returnDate = returnDateInput?.value || '';
       const vehicleKey = vehicleSelect?.value || 'tempo-12';
       const vehicle = VEHICLE_PRICING[vehicleKey] || { name: 'Tempo Traveller', perKm: 22 };
       const fareInfo = getEstimatedFareDetails(drop, vehicleKey);
-
-      if (!pickup) {
-        showToast('Please enter your pickup location');
-        if (pickupInput) pickupInput.focus();
-        return;
-      }
-
-      if (!drop) {
-        showToast('Please enter your destination drop location');
-        if (dropInput) dropInput.focus();
-        return;
-      }
-
-      if (!travelDate) {
-        showToast('Please select your travel date');
-        if (travelDateInput) travelDateInput.focus();
-        return;
-      }
 
       const randomId = Math.floor(1000 + Math.random() * 9000);
       const bookingRef = `SJT-${new Date().getFullYear()}-${randomId}`;
@@ -573,6 +654,16 @@ Sharanappa, # 101 1st main 4th cross BGS Layout near narasappa cricle Thotadagud
 _Please confirm vehicle availability, driver contact, and final best quote._`;
 
       const waUrl = `https://wa.me/${SJT_PHONE}?text=${encodeURIComponent(waText)}`;
+
+      // Direct WhatsApp Launch immediately on click / submit event
+      try {
+        const waWin = window.open(waUrl, '_blank');
+        if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
+          window.location.href = waUrl;
+        }
+      } catch (err) {
+        window.location.href = waUrl;
+      }
 
       showBookingSlipModal({
         ref: bookingRef,
@@ -676,9 +767,6 @@ _Please confirm vehicle availability, driver contact, and final best quote._`;
         });
       });
     }
-
-    // Auto-open WhatsApp in new tab
-    window.open(data.waUrl, '_blank');
   }
 
   if (modalCloseBtn && modalBackdrop) {
@@ -762,7 +850,14 @@ Sharanappa, # 101 1st main 4th cross BGS Layout near narasappa cricle Thotadagud
 _We request SJT Corporate Fleet team to share standard SLA, vehicle inspection details, and monthly attachment rate card._`;
 
       const waUrl = `https://wa.me/${SJT_PHONE}?text=${encodeURIComponent(corpMessage)}`;
-      window.open(waUrl, '_blank');
+      try {
+        const waWin = window.open(waUrl, '_blank');
+        if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
+          window.location.href = waUrl;
+        }
+      } catch (err) {
+        window.location.href = waUrl;
+      }
       showToast('Corporate RFP request submitted! Opening WhatsApp...');
     });
   }
@@ -791,7 +886,14 @@ Sharanappa, # 101 1st main 4th cross BGS Layout near narasappa cricle Thotadagud
 _Sent from SJT Official Portal Contact Form_`;
 
       const waUrl = `https://wa.me/${SJT_PHONE}?text=${encodeURIComponent(contactMsg)}`;
-      window.open(waUrl, '_blank');
+      try {
+        const waWin = window.open(waUrl, '_blank');
+        if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
+          window.location.href = waUrl;
+        }
+      } catch (err) {
+        window.location.href = waUrl;
+      }
       showToast('Thank you! Redirecting to WhatsApp support desk...');
     });
   }
@@ -1291,9 +1393,104 @@ _Sent from SJT Official Portal Contact Form_`;
     }
   };
 
-  // DOM Elements
+  // Comprehensive Search Database for All India Tour Packages (States, Places & Circuits)
+  const PACKAGES_SEARCH_DATABASE = [
+    // --- 1. ALL STATES & REGIONS (17 State Categories) ---
+    { name: 'Rajasthan State Tour Circuits', type: 'state', stateKey: 'rajasthan', icon: '🏰', sub: 'Royal Forts, Udaipur Lakes, Jaipur & Jaisalmer Desert (7D/6N)' },
+    { name: 'Himachal Pradesh State Circuits', type: 'state', stateKey: 'himachal-pradesh', icon: '🏔️', sub: 'Shimla, Kullu, Manali Snow Valley, Rohtang & Solang (6D/5N)' },
+    { name: 'Jammu & Kashmir & Ladakh Circuits', type: 'state', stateKey: 'jammu-kashmir', icon: '❄️', sub: 'Srinagar Dal Lake, Gulmarg Gondola & Pahalgam Valleys (6D/5N)' },
+    { name: 'Uttarakhand State (Char Dham & Hills)', type: 'state', stateKey: 'uttarakhand', icon: '🛕', sub: 'Kedarnath, Badrinath, Haridwar, Rishikesh & Nainital' },
+    { name: 'Kerala State (God\'s Own Country)', type: 'state', stateKey: 'kerala', icon: '🌴', sub: 'Munnar Tea Hills, Alleppey Houseboats & Thekkady (5D/4N)' },
+    { name: 'Uttar Pradesh (Kashi, Ayodhya & Mathura)', type: 'state', stateKey: 'uttar-pradesh', icon: '🛕', sub: 'Kashi Vishwanath Corridor, Ayodhya Ram Mandir & Saryu (4D/3N)' },
+    { name: 'Meghalaya & Assam (North East)', type: 'state', stateKey: 'meghalaya', icon: '🌿', sub: 'Shillong, Cherrapunji Living Root Bridges & Kaziranga (6D/5N)' },
+    { name: 'Golden Triangle (Delhi - Agra - Jaipur)', type: 'state', stateKey: 'golden-triangle', icon: '🏛️', sub: 'Taj Mahal Wonder, Amber Fort & Red Fort Historic Circuit (4D/3N)' },
+    { name: 'Karnataka (Heritage, Hills & Coastal)', type: 'state', stateKey: 'karnataka', icon: '🛕', sub: 'Mysore Palace, Coorg Coffee, Chikmagalur & Hampi UNESCO (7D/6N)' },
+    { name: 'Tamil Nadu (Temple Cities Circuit)', type: 'state', stateKey: 'tamil-nadu', icon: '🛕', sub: 'Madurai Meenakshi, Rameshwaram, Kanyakumari & Thanjavur (6D/5N)' },
+    { name: 'Gujarat (White Rann, Dwarka & Somnath)', type: 'state', stateKey: 'gujarat', icon: '🦁', sub: 'Statue of Unity, Rann of Kutch, Somnath & Dwarka Temples (6D/5N)' },
+    { name: 'Goa (Beaches & Coastal Forts)', type: 'state', stateKey: 'goa', icon: '🏖️', sub: 'North & South Goa, Calangute, Baga, Fort Aguada & Dudhsagar (4D/3N)' },
+    { name: 'Madhya Pradesh (Wildlife & Heritage)', type: 'state', stateKey: 'madhya-pradesh', icon: '🐅', sub: 'Khajuraho UNESCO Temples, Bandhavgarh Safari & Ujjain (6D/5N)' },
+    { name: 'Odisha (Puri Jagannath & Konark)', type: 'state', stateKey: 'odisha', icon: '🛕', sub: 'Puri Lord Jagannath Temple, Konark Sun Temple & Chilika (4D/3N)' },
+    { name: 'Sikkim & West Bengal (Eastern Himalayas)', type: 'state', stateKey: 'sikkim', icon: '🏔️', sub: 'Gangtok, Tsomgo Lake, Pelling & Darjeeling Tea Hills (6D/5N)' },
+    { name: 'Maharashtra (Sahyadri Forts & Caves)', type: 'state', stateKey: 'maharashtra', icon: '🏰', sub: 'Mumbai, Lonavala, Mahabaleshwar & Ajanta-Ellora Caves (6D/5N)' },
+    { name: 'Andhra Pradesh & Telangana', type: 'state', stateKey: 'andhra-pradesh', icon: '🛕', sub: 'Tirupati Balaji Darshan, Vizag Araku Valley & Hyderabad (5D/4N)' },
+
+    // --- 2. POPULAR DESTINATIONS, HILL STATIONS & PILGRIMAGE PLACES ---
+    { name: 'Manali (Solang Valley, Rohtang & Atal Tunnel)', type: 'place', stateKey: 'himachal-pradesh', searchKeyword: 'Manali', icon: '🏔️', sub: 'Himachal Pradesh • Snow Point, Beas River & Adventure' },
+    { name: 'Munnar (Tea Gardens, Mattupetty & Eravikulam)', type: 'place', stateKey: 'kerala', searchKeyword: 'Munnar', icon: '🌄', sub: 'Kerala • Anamudi Peak & Misty Mountain Slopes' },
+    { name: 'Mysore / Mysuru (Grand Palace & Chamundi Hills)', type: 'place', stateKey: 'karnataka', searchKeyword: 'Mysore', icon: '🏰', sub: 'Karnataka • Royal City & 10-Lane Expressway' },
+    { name: 'Madurai (Meenakshi Amman Temple)', type: 'place', stateKey: 'tamil-nadu', searchKeyword: 'Madurai', icon: '🛕', sub: 'Tamil Nadu • 2,500-Year Ancient Temple City' },
+    { name: 'Mussoorie (Queen of Hills & Kempty Falls)', type: 'place', stateKey: 'uttarakhand', searchKeyword: 'Mussoorie', icon: '🌄', sub: 'Uttarakhand • Gun Hill, Mall Road & Doon Views' },
+    { name: 'Meghalaya (Cherrapunji & Living Root Bridges)', type: 'place', stateKey: 'meghalaya', searchKeyword: 'Meghalaya', icon: '🌿', sub: 'North East • Wettest Place on Earth & Waterfalls' },
+    { name: 'Mahabalipuram (Shore Temples & Five Rathas)', type: 'place', stateKey: 'tamil-nadu', searchKeyword: 'Mahabalipuram', icon: '🏛️', sub: 'Tamil Nadu • UNESCO 7th Century Coastal Monoliths' },
+    { name: 'Mathura & Vrindavan (Lord Krishna Janmabhoomi)', type: 'place', stateKey: 'uttar-pradesh', searchKeyword: 'Mathura', icon: '🛕', sub: 'Uttar Pradesh • Bankey Bihari, Prem Mandir & Yamuna' },
+    { name: 'Mount Abu (Dilwara Temples & Nakki Lake)', type: 'place', stateKey: 'rajasthan', searchKeyword: 'Mount Abu', icon: '🌄', sub: 'Rajasthan • Only Hill Station & Marble Carvings' },
+    { name: 'Mumbai (Gateway of India & Marine Drive)', type: 'place', stateKey: 'maharashtra', searchKeyword: 'Mumbai', icon: '🏙️', sub: 'Maharashtra • Maximum City Coastline & Elephanta' },
+    { name: 'Murudeshwar (Giant Shiva Statue & Beach)', type: 'place', stateKey: 'karnataka', searchKeyword: 'Murudeshwar', icon: '🛕', sub: 'Karnataka • Arabian Sea Shore Temple & Raja Gopura' },
+    { name: 'Mangalore (Panambur & Tannirbhavi Beaches)', type: 'place', stateKey: 'karnataka', searchKeyword: 'Mangalore', icon: '🌊', sub: 'Karnataka • Coastal Port City & Seafood Cuisine' },
+    { name: 'Jaipur (Pink City, Amber Fort & Hawa Mahal)', type: 'place', stateKey: 'rajasthan', searchKeyword: 'Jaipur', icon: '🏰', sub: 'Rajasthan • Royal Palaces & Golden Triangle' },
+    { name: 'Udaipur (City of Lakes & Lake Pichola)', type: 'place', stateKey: 'rajasthan', searchKeyword: 'Udaipur', icon: '🏰', sub: 'Rajasthan • City Palace, Jag Mandir & Sunset Boat' },
+    { name: 'Jodhpur (Blue City & Mehrangarh Fort)', type: 'place', stateKey: 'rajasthan', searchKeyword: 'Jodhpur', icon: '🏰', sub: 'Rajasthan • Umaid Bhawan & Rao Jodha Desert Park' },
+    { name: 'Jaisalmer (Sam Sand Dunes & Living Fort)', type: 'place', stateKey: 'rajasthan', searchKeyword: 'Jaisalmer', icon: '🏜️', sub: 'Rajasthan • Thar Desert Camel Safari & Folk Dance' },
+    { name: 'Shimla (The Ridge, Mall Road & Kufri Snow)', type: 'place', stateKey: 'himachal-pradesh', searchKeyword: 'Shimla', icon: '🏔️', sub: 'Himachal Pradesh • Colonial Summer Capital' },
+    { name: 'Srinagar (Dal Lake Houseboat & Shikara)', type: 'place', stateKey: 'jammu-kashmir', searchKeyword: 'Srinagar', icon: '❄️', sub: 'Jammu & Kashmir • Mughal Gardens & Floating Market' },
+    { name: 'Gulmarg (Gondola Cable Car & Snow Bowl)', type: 'place', stateKey: 'jammu-kashmir', searchKeyword: 'Gulmarg', icon: '🎿', sub: 'Jammu & Kashmir • Asia\'s Highest Ropeway & Powder Snow' },
+    { name: 'Pahalgam (Betaab Valley & Lidder River)', type: 'place', stateKey: 'jammu-kashmir', searchKeyword: 'Pahalgam', icon: '🌲', sub: 'Jammu & Kashmir • Valley of Shepherds & Aru Valley' },
+    { name: 'Kedarnath Dham (Sacred Himalayan Jyotirlinga)', type: 'place', stateKey: 'uttarakhand', searchKeyword: 'Kedarnath', icon: '🛕', sub: 'Uttarakhand • Lord Shiva Mandir at 3,584m Altitude' },
+    { name: 'Badrinath Dham (Sacred Alaknanda River)', type: 'place', stateKey: 'uttarakhand', searchKeyword: 'Badrinath', icon: '🛕', sub: 'Uttarakhand • Maha Vishnu Temple & Tapt Kund' },
+    { name: 'Haridwar & Rishikesh (Ganga Aarti & Rafting)', type: 'place', stateKey: 'uttarakhand', searchKeyword: 'Rishikesh', icon: '🌊', sub: 'Uttarakhand • Ram Jhula, Parmarth & White River Rapids' },
+    { name: 'Nainital (Naini Lake Boating & Kumaon Hills)', type: 'place', stateKey: 'uttarakhand', searchKeyword: 'Nainital', icon: '⛵', sub: 'Uttarakhand • Emerald Lake & Himalayan Viewpoints' },
+    { name: 'Alleppey / Alappuzha (Luxury Houseboat Cruise)', type: 'place', stateKey: 'kerala', searchKeyword: 'Alleppey', icon: '⛵', sub: 'Kerala • Overnight Backwater Cruise & Paddy Fields' },
+    { name: 'Thekkady (Periyar Lake Tiger Reserve)', type: 'place', stateKey: 'kerala', searchKeyword: 'Thekkady', icon: '🐅', sub: 'Kerala • Wildlife Sanctuary Boating & Spice Gardens' },
+    { name: 'Wayanad (Banasura Dam & Chembra Peak)', type: 'place', stateKey: 'kerala', searchKeyword: 'Wayanad', icon: '🌄', sub: 'Kerala • Coffee Hills, Edakkal Caves & Waterfalls' },
+    { name: 'Coorg / Madikeri (Coffee Estates & Abbey Falls)', type: 'place', stateKey: 'karnataka', searchKeyword: 'Coorg', icon: '☕', sub: 'Karnataka • Scotland of India & Raja\'s Seat' },
+    { name: 'Chikmagalur (Mullayanagiri & Baba Budan)', type: 'place', stateKey: 'karnataka', searchKeyword: 'Chikmagalur', icon: '🌄', sub: 'Karnataka • Highest Peak & Lush Coffee Plantations' },
+    { name: 'Ooty (Queen of Hills & Botanical Garden)', type: 'place', stateKey: 'tamil-nadu', searchKeyword: 'Ooty', icon: '🚂', sub: 'Tamil Nadu • Nilgiri Mountain Toy Train & Doddabetta' },
+    { name: 'Kodaikanal (Pillar Rocks & Star Lake)', type: 'place', stateKey: 'tamil-nadu', searchKeyword: 'Kodaikanal', icon: '🌄', sub: 'Tamil Nadu • Princess of Hill Stations & Pine Forests' },
+    { name: 'Hampi (Vijayanagara UNESCO Stone Chariot)', type: 'place', stateKey: 'karnataka', searchKeyword: 'Hampi', icon: '🏛️', sub: 'Karnataka • World Heritage Ruins & Virupaksha Temple' },
+    { name: 'Badami (Red Sandstone Cave Temples)', type: 'place', stateKey: 'karnataka', searchKeyword: 'Badami', icon: '🛕', sub: 'Karnataka • Chalukya Rock Architecture & Agastya Lake' },
+    { name: 'Tirupati (Lord Venkateswara Balaji Temple)', type: 'place', stateKey: 'andhra-pradesh', searchKeyword: 'Tirupati', icon: '🛕', sub: 'Andhra Pradesh • Seven Sacred Hills of Tirumala' },
+    { name: 'Rameshwaram (Pamban Bridge & 22 Theerthams)', type: 'place', stateKey: 'tamil-nadu', searchKeyword: 'Rameshwaram', icon: '🛕', sub: 'Tamil Nadu • Ramanathaswamy Temple & Dhanushkodi' },
+    { name: 'Kashi / Varanasi (Vishwanath & Ganga Aarti)', type: 'place', stateKey: 'uttar-pradesh', searchKeyword: 'Varanasi', icon: '🛕', sub: 'Uttar Pradesh • Oldest Living City & Dashashwamedh' },
+    { name: 'Ayodhya (Grand Shri Ram Janmabhoomi Mandir)', type: 'place', stateKey: 'uttar-pradesh', searchKeyword: 'Ayodhya', icon: '🛕', sub: 'Uttar Pradesh • Ram Lalla Darshan & Sacred Saryu Aarti' },
+    { name: 'Agra (Taj Mahal Wonder & Agra Fort)', type: 'place', stateKey: 'golden-triangle', searchKeyword: 'Agra', icon: '🕌', sub: 'Golden Triangle • White Marble Wonder of the World' },
+    { name: 'Kaziranga (One-Horned Rhinoceros Safari)', type: 'place', stateKey: 'meghalaya', searchKeyword: 'Kaziranga', icon: '🦏', sub: 'Assam • UNESCO World Heritage Wildlife Reserve' },
+    { name: 'Shillong (Scotland of the East & Ward\'s Lake)', type: 'place', stateKey: 'meghalaya', searchKeyword: 'Shillong', icon: '🌿', sub: 'Meghalaya • Pine Hills, Elephant Falls & Umiam Lake' },
+    { name: 'Gangtok (Tsomgo Lake & Kanchenjunga Vistas)', type: 'place', stateKey: 'sikkim', searchKeyword: 'Gangtok', icon: '🏔️', sub: 'Sikkim • Himalayan Monasteries & MG Marg' },
+    { name: 'Goa Beaches (Calangute, Baga & Fort Aguada)', type: 'place', stateKey: 'goa', searchKeyword: 'Goa', icon: '🏖️', sub: 'Goa • Arabian Sea Sunset & Water Sports' },
+    { name: 'Somnath & Dwarka (Lord Krishna Coastal Dham)', type: 'place', stateKey: 'gujarat', searchKeyword: 'Dwarka', icon: '🛕', sub: 'Gujarat • Dwarkadhish Mandir & First Jyotirlinga' },
+    { name: 'Shirdi (Sai Baba Samadhi Temple)', type: 'place', stateKey: 'maharashtra', searchKeyword: 'Shirdi', icon: '🛕', sub: 'Maharashtra • Shri Saibaba Sansthan & Shani Shingnapur' },
+    { name: 'Puri (Lord Jagannath Temple & Konark Sun)', type: 'place', stateKey: 'odisha', searchKeyword: 'Puri', icon: '🛕', sub: 'Odisha • Char Dham Coastal Temple & Golden Beach' },
+    { name: 'Hyderabad (Charminar, Golconda & Hitec City)', type: 'place', stateKey: 'andhra-pradesh', searchKeyword: 'Hyderabad', icon: '🏰', sub: 'Telangana • Historic Nizami Heritage & Ramoji' },
+    { name: 'Darjeeling (Tiger Hill Sunrise & Tea Estates)', type: 'place', stateKey: 'sikkim', searchKeyword: 'Darjeeling', icon: '🍵', sub: 'West Bengal • Kanchenjunga Peak & Himalayan Toy Train' },
+    { name: 'Khajuraho (Intricate Temple Sculptures)', type: 'place', stateKey: 'madhya-pradesh', searchKeyword: 'Khajuraho', icon: '🛕', sub: 'Madhya Pradesh • UNESCO Medieval Temple Art' },
+    { name: 'Bandhavgarh (Tiger Reserve Jungle Safari)', type: 'place', stateKey: 'madhya-pradesh', searchKeyword: 'Bandhavgarh', icon: '🐅', sub: 'Madhya Pradesh • High Density Bengal Tiger Habitat' },
+    { name: 'Mahabaleshwar (Strawberry Hills & Arthur Seat)', type: 'place', stateKey: 'maharashtra', searchKeyword: 'Mahabaleshwar', icon: '🍓', sub: 'Maharashtra • Sahyadri Western Ghats Viewpoints' },
+
+    // --- 3. ALL 18 HANDCRAFTED TOUR PACKAGES ---
+    { name: 'Royal Rajasthan Heritage & Golden Dunes Circuit', type: 'package', pkgId: 'pkg-rajasthan', searchKeyword: 'Rajasthan', icon: '🚐', sub: '7D / 6N • Jaipur, Jodhpur, Udaipur & Jaisalmer Desert' },
+    { name: 'Himachal Snow & Valley Explorer (Shimla • Manali)', type: 'package', pkgId: 'pkg-himachal', searchKeyword: 'Manali', icon: '🚐', sub: '6D / 5N • Chandigarh, Shimla, Kullu, Manali & Solang' },
+    { name: 'Kashmir Paradise Valley & Dal Lake Splendour', type: 'package', pkgId: 'pkg-kashmir', searchKeyword: 'Kashmir', icon: '🚐', sub: '6D / 5N • Srinagar, Gulmarg, Pahalgam & Sonmarg' },
+    { name: 'Uttarakhand Sacred Char Dham Maha Yatra Circuit', type: 'package', pkgId: 'pkg-chardham', searchKeyword: 'Kedarnath', icon: '🚐', sub: '10D / 9N • Yamunotri, Gangotri, Kedarnath & Badrinath' },
+    { name: 'Kerala Backwaters & Misty Tea Estates Escapade', type: 'package', pkgId: 'pkg-kerala', searchKeyword: 'Munnar', icon: '🚐', sub: '5D / 4N • Kochi, Munnar, Thekkady & Alleppey Houseboat' },
+    { name: 'Spiritual Uttar Pradesh: Kashi Vishwanath & Ayodhya', type: 'package', pkgId: 'pkg-varanasi', searchKeyword: 'Varanasi', icon: '🚐', sub: '4D / 3N • Varanasi, Ayodhya Ram Mandir & Prayagraj' },
+    { name: 'Mystical North East: Meghalaya & Kaziranga Wildlife', type: 'package', pkgId: 'pkg-northeast', searchKeyword: 'Meghalaya', icon: '🚐', sub: '6D / 5N • Shillong, Cherrapunji, Dawki & Kaziranga Rhino' },
+    { name: 'Golden Triangle Classic Heritage (Delhi • Agra • Jaipur)', type: 'package', pkgId: 'pkg-golden-triangle', searchKeyword: 'Golden Triangle', icon: '🚐', sub: '4D / 3N • Taj Mahal, Amber Fort, Qutub & Fatehpur Sikri' },
+    { name: 'Complete Karnataka Heritage & Hills Odyssey', type: 'package', pkgId: 'pkg-karnataka', searchKeyword: 'Karnataka', icon: '🚐', sub: '7D / 6N • Mysore, Coorg, Chikmagalur, Hampi & Badami' },
+    { name: 'Sacred Tamil Nadu Temple Cities Odyssey', type: 'package', pkgId: 'pkg-tamilnadu', searchKeyword: 'Tamil Nadu', icon: '🚐', sub: '6D / 5N • Madurai, Rameshwaram, Kanyakumari & Thanjavur' },
+    { name: 'Vibrant Gujarat: White Rann, Dwarka & Somnath', type: 'package', pkgId: 'pkg-gujarat', searchKeyword: 'Gujarat', icon: '🚐', sub: '6D / 5N • Ahmedabad, Kutch Rann, Dwarka, Somnath & Gir' },
+    { name: 'Goa Sun-Kissed Beaches & Heritage Forts Gateway', type: 'package', pkgId: 'pkg-goa', searchKeyword: 'Goa', icon: '🚐', sub: '4D / 3N • Calangute, Baga, Fort Aguada & Dudhsagar Falls' },
+    { name: 'Heart of India: Madhya Pradesh Wildlife & Heritage', type: 'package', pkgId: 'pkg-mp', searchKeyword: 'Madhya Pradesh', icon: '🚐', sub: '6D / 5N • Khajuraho, Bandhavgarh Safari & Ujjain Mahakal' },
+    { name: 'Soulful Odisha: Puri Jagannath & Konark Heritage', type: 'package', pkgId: 'pkg-odisha', searchKeyword: 'Puri', icon: '🚐', sub: '4D / 3N • Bhubaneswar, Puri Jagannath & Konark Sun Temple' },
+    { name: 'Eastern Himalayan Jewels: Sikkim & Darjeeling', type: 'package', pkgId: 'pkg-sikkim', searchKeyword: 'Sikkim', icon: '🚐', sub: '6D / 5N • Gangtok, Tsomgo Lake, Pelling & Darjeeling' },
+    { name: 'Majestic Maharashtra: Forts, Caves & Hill Retreats', type: 'package', pkgId: 'pkg-maharashtra', searchKeyword: 'Maharashtra', icon: '🚐', sub: '6D / 5N • Mumbai, Lonavala, Mahabaleshwar & Ajanta-Ellora' },
+    { name: 'Andhra Pradesh Spiritual & Coastal Splendours', type: 'package', pkgId: 'pkg-andhra', searchKeyword: 'Tirupati', icon: '🚐', sub: '5D / 4N • Tirupati Balaji, Vijayawada, Vizag & Araku Valley' },
+    { name: 'Uttarakhand Hill Charms: Nainital, Mussoorie & Rishikesh', type: 'package', pkgId: 'pkg-uttarakhand-scenic', searchKeyword: 'Mussoorie', icon: '🚐', sub: '5D / 4N • Haridwar, Rishikesh, Mussoorie & Nainital' }
+  ];
+
+  // DOM Elements for Packages Page
   const pkgSearchInput = document.getElementById('pkgSearchInput');
   const pkgSearchClearBtn = document.getElementById('pkgSearchClearBtn');
+  const pkgSearchDropdown = document.getElementById('pkgSearchAutocompleteList');
   const pkgStateSelect = document.getElementById('pkgStateSelect');
   const pkgDurationSelect = document.getElementById('pkgDurationSelect');
   const pkgResetBtn = document.getElementById('pkgResetBtn');
@@ -1307,7 +1504,7 @@ _Sent from SJT Official Portal Contact Form_`;
 
   // Modal Elements
   const pkgModalBackdrop = document.getElementById('packageDetailModal');
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const pkgModalCloseBtn = document.getElementById('pkgModalCloseBtn') || document.querySelector('.pkg-modal-close-btn');
   const modalPkgTitle = document.getElementById('modalPkgTitle');
   const modalPkgState = document.getElementById('modalPkgState');
   const modalPkgImage = document.getElementById('modalPkgImage');
@@ -1335,11 +1532,30 @@ _Sent from SJT Official Portal Contact Form_`;
     const searchLower = currentFilter.search.trim().toLowerCase();
 
     pkgCards.forEach(card => {
-      const cardState = card.dataset.state || '';
-      const cardZone = card.dataset.zone || '';
-      const cardDuration = card.dataset.duration || '';
+      const cardState = (card.dataset.state || '').toLowerCase();
+      const cardZone = (card.dataset.zone || '').toLowerCase();
+      const cardDuration = (card.dataset.duration || '').toLowerCase();
       const cardTags = (card.dataset.tags || '').toLowerCase();
-      const cardText = (card.textContent || '').toLowerCase();
+
+      // Meaningful searchable text across all card badges, titles, and routes
+      const titleElem = card.querySelector('.pkg-card-title');
+      const routeElem = card.querySelector('.pkg-route-pill');
+      const stateBadge = card.querySelector('.pkg-state-badge');
+      const categoryBadge = card.querySelector('.pkg-tag-category');
+      const summaryElem = card.querySelector('.pkg-card-summary');
+      const highlightsElem = card.querySelector('.pkg-highlights-list');
+
+      const searchableCardText = [
+        cardState,
+        cardZone,
+        cardTags,
+        titleElem?.textContent || '',
+        routeElem?.textContent || '',
+        stateBadge?.textContent || '',
+        categoryBadge?.textContent || '',
+        summaryElem?.textContent || '',
+        highlightsElem?.textContent || ''
+      ].join(' ').toLowerCase();
 
       // Check Zone Match
       const matchesZone = (currentFilter.zone === 'all') || 
@@ -1355,19 +1571,30 @@ _Sent from SJT Official Portal Contact Form_`;
       // Check Duration Match
       const matchesDuration = (currentFilter.duration === 'all') || (cardDuration === currentFilter.duration);
 
-      // Check Search Match
-      const matchesSearch = !searchLower || 
-                            cardText.includes(searchLower) || 
-                            cardTags.includes(searchLower) ||
-                            cardState.includes(searchLower);
+      // Check Search Match (Checks each word or whole phrase)
+      let matchesSearch = true;
+      if (searchLower) {
+        const words = searchLower.split(/\s+/).filter(Boolean);
+        matchesSearch = words.every(w => searchableCardText.includes(w));
+      }
 
       if (matchesZone && matchesState && matchesDuration && matchesSearch) {
         card.style.display = 'flex';
+        card.style.opacity = '1';
+        card.style.visibility = 'visible';
+        card.style.transform = 'none';
         visibleCount++;
       } else {
         card.style.display = 'none';
       }
     });
+
+    // Ensure Master Grid is explicitly visible and rendered
+    if (packagesMasterGrid) {
+      packagesMasterGrid.style.opacity = '1';
+      packagesMasterGrid.style.visibility = 'visible';
+      packagesMasterGrid.style.transform = 'none';
+    }
 
     // Update Counter & Fallback
     if (pkgActiveCount) {
@@ -1375,33 +1602,226 @@ _Sent from SJT Official Portal Contact Form_`;
     }
 
     if (pkgNoResultsCard) {
-      if (visibleCount === 0) {
-        pkgNoResultsCard.style.display = 'block';
-      } else {
-        pkgNoResultsCard.style.display = 'none';
-      }
+      pkgNoResultsCard.style.display = (visibleCount === 0) ? 'block' : 'none';
     }
   }
 
-  // Live Search Handler
-  if (pkgSearchInput) {
-    pkgSearchInput.addEventListener('input', () => {
-      currentFilter.search = pkgSearchInput.value;
-      if (pkgSearchClearBtn) {
-        pkgSearchClearBtn.style.display = currentFilter.search ? 'flex' : 'none';
+  // Setup Live Alphabet-by-Alphabet Autocomplete for Packages Search Bar
+  function setupPackagesSearchAutocomplete() {
+    if (!pkgSearchInput || !pkgSearchDropdown) return;
+
+    let selectedPkgIndex = -1;
+
+    function renderPkgSuggestions(query = '') {
+      const trimmed = (query || '').trim().toLowerCase();
+      let matches = [];
+
+      if (!trimmed) {
+        // Show high-priority popular recommendations when input is empty or clicked
+        matches = [
+          { name: 'Rajasthan State Tour Circuits', type: 'state', stateKey: 'rajasthan', icon: '🏰', sub: 'Jaipur, Udaipur, Jodhpur & Desert Dunes • 7D/6N' },
+          { name: 'Himachal Pradesh State Circuits', type: 'state', stateKey: 'himachal-pradesh', icon: '🏔️', sub: 'Manali, Solang Valley & Shimla Snow • 6D/5N' },
+          { name: 'Jammu & Kashmir & Ladakh Circuits', type: 'state', stateKey: 'jammu-kashmir', icon: '❄️', sub: 'Srinagar Dal Lake, Gulmarg & Pahalgam • 6D/5N' },
+          { name: 'Kerala State (God\'s Own Country)', type: 'state', stateKey: 'kerala', icon: '🌴', sub: 'Munnar Tea Hills & Alleppey Houseboat • 5D/4N' },
+          { name: 'Uttarakhand State (Char Dham & Hills)', type: 'state', stateKey: 'uttarakhand', icon: '🛕', sub: 'Kedarnath, Badrinath, Haridwar & Nainital • 10D/9N' },
+          { name: 'Karnataka (Heritage & Hills Odyssey)', type: 'state', stateKey: 'karnataka', icon: '🛕', sub: 'Mysore, Coorg, Chikmagalur & Hampi • 7D/6N' },
+          { name: 'Goa (Beaches & Coastal Forts)', type: 'state', stateKey: 'goa', icon: '🏖️', sub: 'North & South Goa, Calangute & Baga • 4D/3N' },
+          { name: 'Manali (Solang Valley, Rohtang & Snow)', type: 'place', stateKey: 'himachal-pradesh', searchKeyword: 'Manali', icon: '🏔️', sub: 'Himachal Snow Gateway' },
+          { name: 'Munnar (Tea Gardens & Misty Hills)', type: 'place', stateKey: 'kerala', searchKeyword: 'Munnar', icon: '🌄', sub: 'Kerala High Ranges' },
+          { name: 'Mysore (Grand Palace & Chamundi Hills)', type: 'place', stateKey: 'karnataka', searchKeyword: 'Mysore', icon: '🏰', sub: 'Karnataka Heritage City' }
+        ];
+      } else {
+        const startsWithMatches = [];
+        const wordStartsMatches = [];
+        const containsMatches = [];
+
+        PACKAGES_SEARCH_DATABASE.forEach(item => {
+          const nameLower = item.name.toLowerCase();
+          const subLower = (item.sub || '').toLowerCase();
+          const stateLower = (item.stateKey || '').toLowerCase();
+          const kwLower = (item.searchKeyword || '').toLowerCase();
+
+          if (nameLower.startsWith(trimmed) || kwLower.startsWith(trimmed)) {
+            startsWithMatches.push(item);
+          } else {
+            const words = nameLower.split(/[\s\-()/,•]+/);
+            if (words.some(w => w.startsWith(trimmed))) {
+              wordStartsMatches.push(item);
+            } else if (nameLower.includes(trimmed) || subLower.includes(trimmed) || stateLower.includes(trimmed) || kwLower.includes(trimmed)) {
+              containsMatches.push(item);
+            }
+          }
+        });
+
+        matches = [...startsWithMatches, ...wordStartsMatches, ...containsMatches].slice(0, 10);
       }
+
+      if (matches.length === 0) {
+        pkgSearchDropdown.innerHTML = `
+          <div style="padding: 16px; text-align: center; color: var(--slate-400); font-size: 0.85rem;">
+            No specific destinations matching "<strong>${escapeHtml(query)}</strong>".<br>
+            <span style="font-size: 0.76rem; color: var(--slate-500);">Searching packages grid directly...</span>
+          </div>
+        `;
+        pkgSearchDropdown.classList.add('show');
+        return;
+      }
+
+      let html = `<div class="pkg-autocomplete-header">${trimmed ? `Matching States, Places & Circuits (${matches.length})` : 'Popular Tour Suggestions'}</div>`;
+
+      matches.forEach((item, index) => {
+        let highlightedName = escapeHtml(item.name);
+        if (trimmed) {
+          const regex = new RegExp(`(${escapeRegExp(trimmed)})`, 'gi');
+          highlightedName = highlightedName.replace(regex, '<span class="highlight-letter">$1</span>');
+        }
+
+        const badgeLabel = item.type === 'state' ? 'STATE' : (item.type === 'package' ? 'TOUR PACKAGE' : 'DESTINATION');
+        const badgeBg = item.type === 'state' ? '#dcfce7' : (item.type === 'package' ? '#fef3c7' : '#eff6ff');
+        const badgeColor = item.type === 'state' ? '#15803d' : (item.type === 'package' ? '#b45309' : '#1d4ed8');
+
+        html += `
+          <div class="pkg-autocomplete-item" data-index="${index}" data-name="${escapeHtml(item.name)}" data-type="${item.type}" data-state="${item.stateKey || ''}" data-kw="${escapeHtml(item.searchKeyword || item.name)}" data-pkg="${item.pkgId || ''}">
+            <div class="pkg-autocomplete-left">
+              <span class="pkg-autocomplete-icon">${item.icon || '📍'}</span>
+              <div>
+                <div class="pkg-autocomplete-name">${highlightedName}</div>
+                <div class="pkg-autocomplete-sub">${escapeHtml(item.sub || '')}</div>
+              </div>
+            </div>
+            <span class="pkg-autocomplete-badge" style="background:${badgeBg}; color:${badgeColor};">${badgeLabel}</span>
+          </div>
+        `;
+      });
+
+      pkgSearchDropdown.innerHTML = html;
+      pkgSearchDropdown.classList.add('show');
+      selectedPkgIndex = -1;
+
+      // Click listener for items
+      pkgSearchDropdown.querySelectorAll('.pkg-autocomplete-item').forEach(el => {
+        el.addEventListener('mousedown', (e) => {
+          e.preventDefault();
+          selectPkgSuggestion(el);
+        });
+      });
+    }
+
+    function selectPkgSuggestion(el) {
+      const type = el.dataset.type;
+      const stateKey = el.dataset.state;
+      const keyword = el.dataset.kw;
+      const name = el.dataset.name;
+      const pkgId = el.dataset.pkg;
+
+      pkgSearchDropdown.classList.remove('show');
+      if (pkgSearchClearBtn) pkgSearchClearBtn.style.display = 'flex';
+
+      if (type === 'state' && stateKey) {
+        pkgSearchInput.value = name;
+        currentFilter.search = '';
+        currentFilter.state = stateKey;
+        if (pkgStateSelect) pkgStateSelect.value = stateKey;
+        pkgQuickChips.forEach(chip => {
+          if (chip.dataset.state === stateKey) chip.classList.add('active');
+          else chip.classList.remove('active');
+        });
+        applyPackagesFilter();
+      } else if (type === 'package' && pkgId) {
+        pkgSearchInput.value = name;
+        currentFilter.search = keyword;
+        applyPackagesFilter();
+        const targetCard = document.querySelector(`.package-card-premium[data-id="${pkgId}"]`);
+        if (targetCard) {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          targetCard.classList.add('card-highlight-pulse');
+          setTimeout(() => targetCard.classList.remove('card-highlight-pulse'), 1500);
+        }
+      } else {
+        // Place / Destination
+        pkgSearchInput.value = keyword;
+        currentFilter.search = keyword;
+        applyPackagesFilter();
+        if (packagesMasterGrid) {
+          packagesMasterGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+
+    // Input listener (instant alphabet-by-alphabet)
+    pkgSearchInput.addEventListener('input', () => {
+      const val = pkgSearchInput.value;
+      currentFilter.search = val;
+      if (pkgSearchClearBtn) {
+        pkgSearchClearBtn.style.display = val ? 'flex' : 'none';
+      }
+      renderPkgSuggestions(val);
       applyPackagesFilter();
     });
 
+    // Focus & Click
+    pkgSearchInput.addEventListener('focus', () => {
+      renderPkgSuggestions(pkgSearchInput.value);
+    });
+    pkgSearchInput.addEventListener('click', () => {
+      renderPkgSuggestions(pkgSearchInput.value);
+    });
+
+    // Clear
     if (pkgSearchClearBtn) {
       pkgSearchClearBtn.addEventListener('click', () => {
         pkgSearchInput.value = '';
         currentFilter.search = '';
         pkgSearchClearBtn.style.display = 'none';
+        pkgSearchDropdown.classList.remove('show');
         applyPackagesFilter();
       });
     }
+
+    // Keyboard navigation
+    pkgSearchInput.addEventListener('keydown', (e) => {
+      const items = pkgSearchDropdown.querySelectorAll('.pkg-autocomplete-item');
+      if (!items.length || !pkgSearchDropdown.classList.contains('show')) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        selectedPkgIndex = (selectedPkgIndex + 1) % items.length;
+        updatePkgKeyNav(items);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        selectedPkgIndex = (selectedPkgIndex - 1 + items.length) % items.length;
+        updatePkgKeyNav(items);
+      } else if (e.key === 'Enter') {
+        if (selectedPkgIndex >= 0 && items[selectedPkgIndex]) {
+          e.preventDefault();
+          selectPkgSuggestion(items[selectedPkgIndex]);
+        }
+      } else if (e.key === 'Escape') {
+        pkgSearchDropdown.classList.remove('show');
+      }
+    });
+
+    function updatePkgKeyNav(items) {
+      items.forEach((it, idx) => {
+        if (idx === selectedPkgIndex) {
+          it.classList.add('selected');
+          it.scrollIntoView({ block: 'nearest' });
+        } else {
+          it.classList.remove('selected');
+        }
+      });
+    }
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!pkgSearchInput.contains(e.target) && !pkgSearchDropdown.contains(e.target)) {
+        pkgSearchDropdown.classList.remove('show');
+      }
+    });
   }
+
+  // Initialize packages autocomplete
+  setupPackagesSearchAutocomplete();
 
   // State Dropdown Handler
   if (pkgStateSelect) {
@@ -1458,6 +1878,7 @@ _Sent from SJT Official Portal Contact Form_`;
     currentFilter = { search: '', state: 'all', duration: 'all', zone: 'all' };
     if (pkgSearchInput) pkgSearchInput.value = '';
     if (pkgSearchClearBtn) pkgSearchClearBtn.style.display = 'none';
+    if (pkgSearchDropdown) pkgSearchDropdown.classList.remove('show');
     if (pkgStateSelect) pkgStateSelect.value = 'all';
     if (pkgDurationSelect) pkgDurationSelect.value = 'all';
 
@@ -1578,8 +1999,8 @@ _Hello SJT Team, I would like to check availability and get a detailed day-wise 
     }
   }
 
-  if (modalCloseBtn) {
-    modalCloseBtn.addEventListener('click', closePackageItineraryModal);
+  if (pkgModalCloseBtn) {
+    pkgModalCloseBtn.addEventListener('click', closePackageItineraryModal);
   }
 
   if (pkgModalBackdrop) {
@@ -1625,7 +2046,14 @@ Sharanappa, # 101 1st main 4th cross BGS Layout near narasappa cricle Thotadagud
 _Please prepare a customized day-by-day itinerary with transparent per-KM / fixed package quotation._`;
 
       const waUrl = `https://wa.me/${SJT_PHONE}?text=${encodeURIComponent(customMessage)}`;
-      window.open(waUrl, '_blank');
+      try {
+        const waWin = window.open(waUrl, '_blank');
+        if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
+          window.location.href = waUrl;
+        }
+      } catch (err) {
+        window.location.href = waUrl;
+      }
       showToast('Custom package inquiry created! Opening WhatsApp...');
     });
   }

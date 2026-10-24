@@ -851,12 +851,26 @@ _I want to attach my vehicle with SJT Tours & Travels. Sending details & sharing
       document.getElementById('onboardSuccessModal').classList.add('active');
 
       // Open WhatsApp in new tab/window
-      window.open(lastGeneratedWaUrl, '_blank');
+      try {
+        const waWin = window.open(lastGeneratedWaUrl, '_blank');
+        if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
+          window.location.href = lastGeneratedWaUrl;
+        }
+      } catch (err) {
+        window.location.href = lastGeneratedWaUrl;
+      }
     });
 
     document.getElementById('btnReopenWa').addEventListener('click', function() {
       if (lastGeneratedWaUrl) {
-        window.open(lastGeneratedWaUrl, '_blank');
+        try {
+          const waWin = window.open(lastGeneratedWaUrl, '_blank');
+          if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
+            window.location.href = lastGeneratedWaUrl;
+          }
+        } catch (err) {
+          window.location.href = lastGeneratedWaUrl;
+        }
       }
     });
 

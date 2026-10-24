@@ -210,8 +210,9 @@
             <!-- Live Search -->
             <div class="pkg-search-input-wrap">
               <span class="pkg-search-icon">🔍</span>
-              <input type="text" id="pkgSearchInput" class="pkg-search-input" placeholder="Search by state, city, landmark or route (e.g. Manali, Kerala, Jaipur, Kedarnath)..." aria-label="Search tour packages">
+              <input type="text" id="pkgSearchInput" class="pkg-search-input" placeholder="Search by state, city, landmark or route (e.g. Manali, Kerala, Jaipur, Kedarnath)..." aria-label="Search tour packages" autocomplete="off">
               <button type="button" id="pkgSearchClearBtn" class="pkg-search-clear" aria-label="Clear search">&times;</button>
+              <div id="pkgSearchAutocompleteList" class="pkg-autocomplete-dropdown" role="listbox"></div>
             </div>
 
             <!-- State Selector Dropdown (All 28 States & UTs) -->
@@ -302,7 +303,7 @@
         </div>
 
         <!-- MASTER PACKAGES GRID (18 PACKAGES) -->
-        <div class="packages-master-grid reveal" id="packagesMasterGrid">
+        <div class="packages-master-grid" id="packagesMasterGrid">
 
           <!-- 1. Rajasthan Royal Grand Circuit -->
           <article class="package-card-premium" data-id="pkg-rajasthan" data-state="rajasthan" data-zone="west" data-duration="grand" data-tags="heritage royal desert palace">
@@ -1710,7 +1711,7 @@
           <span class="pkg-modal-state-tag" id="modalPkgState">State Circuit</span>
           <h2 class="pkg-modal-title" id="modalPkgTitle">Package Title</h2>
         </div>
-        <button type="button" class="pkg-modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+        <button type="button" class="pkg-modal-close-btn" id="pkgModalCloseBtn" aria-label="Close dialog">&times;</button>
       </div>
 
       <!-- Modal Body -->

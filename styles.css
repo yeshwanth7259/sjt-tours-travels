@@ -747,6 +747,19 @@ button, input, select, textarea {
   z-index: 5;
 }
 
+.input-cell-relative {
+  position: relative !important;
+}
+
+.field-cell {
+  position: relative;
+}
+
+.field-cell:focus-within,
+.field-cell:has(.autocomplete-dropdown.show) {
+  z-index: 1000 !important;
+}
+
 .input-clear-btn:hover {
   background: var(--slate-200);
   color: var(--slate-900);
@@ -763,13 +776,13 @@ button, input, select, textarea {
   box-shadow: 0 20px 50px rgba(3, 11, 23, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.08);
   max-height: 320px;
   overflow-y: auto;
-  z-index: 100;
+  z-index: 9999 !important;
   padding: 8px;
   display: none;
 }
 
 .autocomplete-dropdown.show {
-  display: block;
+  display: block !important;
   animation: dropdownFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -4250,6 +4263,115 @@ button, input, select, textarea {
   justify-content: center;
   font-size: 0.75rem;
   color: var(--slate-600);
+  z-index: 5;
+}
+
+/* Packages Live Autocomplete Dropdown */
+.pkg-search-input-wrap {
+  position: relative;
+}
+
+.pkg-search-input-wrap:focus-within,
+.pkg-search-input-wrap:has(.pkg-autocomplete-dropdown.show) {
+  z-index: 1000 !important;
+}
+
+.pkg-autocomplete-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(3, 11, 23, 0.28), 0 0 0 1.5px rgba(0, 0, 0, 0.08);
+  max-height: 380px;
+  overflow-y: auto;
+  z-index: 9999 !important;
+  padding: 8px;
+  display: none;
+  text-align: left;
+}
+
+.pkg-autocomplete-dropdown.show {
+  display: block !important;
+  animation: dropdownFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pkg-autocomplete-header {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--slate-400);
+  padding: 8px 12px 6px 12px;
+  letter-spacing: 0.6px;
+  border-bottom: 1px solid var(--slate-100);
+  margin-bottom: 4px;
+}
+
+.pkg-autocomplete-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  font-size: 0.92rem;
+  color: var(--slate-800);
+  gap: 12px;
+}
+
+.pkg-autocomplete-item:hover, .pkg-autocomplete-item.selected {
+  background: #eff6ff;
+  color: var(--sjt-blue-600);
+}
+
+.pkg-autocomplete-item .highlight-letter {
+  background: rgba(245, 158, 11, 0.35);
+  color: #b45309;
+  font-weight: 900;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+.pkg-autocomplete-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  text-align: left;
+}
+
+.pkg-autocomplete-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.pkg-autocomplete-name {
+  font-weight: 800;
+  color: var(--slate-900);
+  font-size: 0.92rem;
+  line-height: 1.25;
+}
+
+.pkg-autocomplete-sub {
+  font-size: 0.76rem;
+  color: var(--slate-500);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.pkg-autocomplete-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background: #f1f5f9;
+  color: var(--slate-600);
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
 }
 
 .pkg-select-wrap {
@@ -4417,6 +4539,9 @@ button, input, select, textarea {
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   align-items: stretch;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
 }
 
 .package-card-premium {
@@ -4428,6 +4553,8 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   height: 100%;
+  opacity: 1 !important;
+  visibility: visible !important;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
   position: relative;
 }
