@@ -952,6 +952,707 @@ _Sent from SJT Official Portal Contact Form_`;
     });
   });
 
+  // ==========================================================================
+  // 20. ALL-INDIA PACKAGES INTERACTIVE ENGINE (SEARCH, FILTERS, MODAL & BUILDER)
+  // ==========================================================================
+  const PACKAGES_DATABASE = {
+    'pkg-rajasthan': {
+      title: 'Royal Rajasthan Heritage & Golden Dunes Circuit',
+      state: 'Rajasthan',
+      zone: 'West India',
+      duration: '7 Days / 6 Nights',
+      pickup: 'Jaipur / Delhi / Bangalore',
+      fleet: 'Innova Crysta / Tempo Traveller / Sedan',
+      price: '₹24,500',
+      image: 'assets/packages/rajasthan.jpg',
+      route: 'Jaipur • Jodhpur • Udaipur • Jaisalmer Thar Desert',
+      days: [
+        { day: 'Day 1', title: 'Pink City Arrival & Royal Palaces', desc: 'Arrive in Jaipur. Check in to your hotel. Visit the grand City Palace, Jantar Mantar UNESCO observatory, and evening photo stop at illuminated Hawa Mahal facade.' },
+        { day: 'Day 2', title: 'Amber Citadel & Nahargarh Sunset', desc: 'Ascend to the hilltop Amber Fort via elephant/jeep ride. Visit Jal Mahal floating palace, Jaigarh cannon fort, and panoramic sunset over Jaipur from Nahargarh.' },
+        { day: 'Day 3', title: 'Jaipur to Blue City Jodhpur', desc: 'Scenic highway transfer to Jodhpur via holy Pushkar Lake & Brahma Temple. Check in and explore local spice markets around Ghanta Ghar.' },
+        { day: 'Day 4', title: 'Mehrangarh Fort & Thar Desert Drive', desc: 'Explore the monumental Mehrangarh Fort, Jaswant Thada royal cenotaphs, and Umaid Bhawan Palace. Drive towards Jaisalmer Golden City.' },
+        { day: 'Day 5', title: 'Jaisalmer Fort & Sam Desert Dunes Safari', desc: 'Visit living sandstone Jaisalmer Fort & Patwon Ki Haveli. Transfer to Sam Sand Dunes for camel desert safari, sunset dunes photography, and Kalbeliya folk music under starlit Swiss tents.' },
+        { day: 'Day 6', title: 'Jaisalmer to Venice of the East Udaipur', desc: 'Drive across the Aravalli range to romantic Udaipur, stopping at the intricately sculpted 15th-century Ranakpur Marble Jain Temples.' },
+        { day: 'Day 7', title: 'Udaipur Lake Pichola & Departure', desc: 'Visit Udaipur City Palace, Saheliyon Ki Bari fountains, enjoy a scenic motorboat cruise on Lake Pichola viewing Jag Mandir, followed by airport/railway drop.' }
+      ]
+    },
+    'pkg-himachal': {
+      title: 'Manali, Solang Valley & Rohtang Snowline Tour',
+      state: 'Himachal Pradesh',
+      zone: 'North India',
+      duration: '6 Days / 5 Nights',
+      pickup: 'Chandigarh / Delhi / Bangalore Flight Drop',
+      fleet: 'Executive SUV / 12-17 Seater Tempo',
+      price: '₹19,500',
+      image: 'assets/packages/himachal.jpg',
+      route: 'Shimla • Kullu • Manali • Solang • Atal Tunnel • Sissu',
+      days: [
+        { day: 'Day 1', title: 'Foothills to Colonial Shimla', desc: 'Scenic mountain climb along Shivalik hills. Arrive in Shimla, check in, and evening walking tour of the historic British Ridge, Christ Church, and bustling Mall Road.' },
+        { day: 'Day 2', title: 'Shimla to Manali via Kullu Valley', desc: 'Drive through Sundernagar Lake, Pandoh Dam, and Kullu Valley. Visit traditional Kullu Shawl weaving emporiums and drive along crystal-clear Beas River to Manali.' },
+        { day: 'Day 3', title: 'Manali Local Sightseeing & Springs', desc: 'Visit the 450-year-old wooden Hadimba Devi Temple in cedar forest, Vashisht hot sulphur springs, Tibetan Monastery, and Old Manali riverside cafes.' },
+        { day: 'Day 4', title: 'Solang Valley & Atal Tunnel to Lahaul', desc: 'Full-day snow adventure at Solang Valley (skiing, zorbing, ropeway). Drive through the engineering wonder Atal Tunnel (9.02 KM) to the snowscapes of Sissu in Lahaul Valley.' },
+        { day: 'Day 5', title: 'Kullu River Rafting & Kasol / Manikaran', desc: 'Thrill-filled white-water rafting on Beas River in Kullu. Excursion to Parvati Valley, Kasol scenic village, and sacred Manikaran Sahib Gurudwara hot springs.' },
+        { day: 'Day 6', title: 'Manali to Chandigarh / Delhi Drop', desc: 'Morning descent through scenic Himachal valleys with sweet Himalayan apples and woolens shopping, dropping you comfortably at Chandigarh or Delhi airport.' }
+      ]
+    },
+    'pkg-kashmir': {
+      title: 'Kashmir Valley, Gulmarg & Dal Lake Wonder',
+      state: 'Jammu & Kashmir',
+      zone: 'North India',
+      duration: '6 Days / 5 Nights',
+      pickup: 'Srinagar Airport (SXR)',
+      fleet: 'Toyota Innova Crysta / Luxury Coach',
+      price: '₹22,000',
+      image: 'assets/packages/kashmir.jpg',
+      route: 'Srinagar • Gulmarg • Pahalgam • Sonamarg',
+      days: [
+        { day: 'Day 1', title: 'Welcome to Paradise & Houseboat Stay', desc: 'Meet your chauffeur at Srinagar Airport. Transfer to a handcrafted luxury wooden houseboat on Dal Lake. Enjoy a relaxing 1-hour sunset Shikara ride across floating lotus gardens.' },
+        { day: 'Day 2', title: 'Srinagar to Gulmarg Meadow of Flowers', desc: 'Drive to Gulmarg (8,825 ft). Ride the world-famous Gulmarg Gondola Phase 1 (Kongdoori) & Phase 2 (Apharwat Peak 13,780 ft) for breathtaking snow slopes and pine valley vistas.' },
+        { day: 'Day 3', title: 'Gulmarg to Saffron Valleys & Pahalgam', desc: 'Scenic journey to Pahalgam (Valley of Shepherds), passing golden saffron fields of Pampore and 9th-century Avantipur temple ruins along the sparkling Lidder River.' },
+        { day: 'Day 4', title: 'Pahalgam Betaab & Aru Valley Excursions', desc: 'Visit picturesque Betaab Valley (named after the Bollywood classic), lush Aru Valley, and optional pony trek to Baisaran Meadow (Mini Switzerland).' },
+        { day: 'Day 5', title: 'Pahalgam to Srinagar Mughal Heritage', desc: 'Return to Srinagar. Visit famous Mughal Gardens: Shalimar Bagh, Nishat Bagh, Chashme Shahi, and climb to Shankaracharya Temple for 360-degree views of Srinagar city.' },
+        { day: 'Day 6', title: 'Sonamarg Day Trip / Airport Departure', desc: 'Excursion to Sonamarg (Meadow of Gold) & Thajiwas Glacier pony snow walk, followed by drop-off at Srinagar Airport with sweet Kashmiri saffron and walnuts.' }
+      ]
+    },
+    'pkg-chardham': {
+      title: 'Devbhoomi Complete Char Dham Maha Yatra',
+      state: 'Uttarakhand',
+      zone: 'Pilgrimage',
+      duration: '10 Days / 9 Nights',
+      pickup: 'Haridwar / Dehradun / Delhi',
+      fleet: 'Pushback Tempo Traveller / Innova Crysta',
+      price: '₹38,000',
+      image: 'assets/packages/chardham.jpg',
+      route: 'Haridwar • Yamunotri • Gangotri • Kedarnath • Badrinath • Rishikesh',
+      days: [
+        { day: 'Day 1', title: 'Haridwar to Barkot', desc: 'Commence holy yatra from Haridwar via Mussoorie Kempty Falls. Drive along pristine Yamuna River valley to Barkot base camp.' },
+        { day: 'Day 2', title: 'Barkot - Yamunotri Dham Darshan', desc: 'Drive to Janki Chatti. Trek 6 KM to sacred Yamunotri Temple. Holy bath in hot Jamunabai Kund, Surya Kund rice cooking ritual, and return to Barkot.' },
+        { day: 'Day 3', title: 'Barkot to Uttarkashi', desc: 'Drive along Bhagirathi River to historic Uttarkashi. Visit ancient Kashi Vishwanath Temple with giant copper Shakti trident.' },
+        { day: 'Day 4', title: 'Uttarkashi - Gangotri Dham Darshan', desc: 'Scenic drive through Harshil Valley (apple orchards). Holy darshan at Gangotri Temple on banks of Bhagirathi River. Return to Uttarkashi.' },
+        { day: 'Day 5', title: 'Uttarkashi to Guptkashi / Phata', desc: 'Drive across scenic Mandakini valley views to Guptkashi. Prepare for Kedarnath trek/helicopter registration.' },
+        { day: 'Day 6', title: 'Guptkashi to Kedarnath Shrine', desc: 'Early transfer to Sonprayag/Gaurikund. Trek or take helicopter to Kedarnath (11,755 ft). Attend divine evening aarti at the ancient Kedarnath Jyotirlinga.' },
+        { day: 'Day 7', title: 'Kedarnath to Pipalkoti / Joshimath', desc: 'Morning darshan at Kedarnath. Descend back to Gaurikund, meet vehicle, and drive through Chopta scenic meadows to Pipalkoti.' },
+        { day: 'Day 8', title: 'Pipalkoti to Badrinath Dham', desc: 'Drive via Joshimath to Badrinath (10,279 ft). Holy dip in natural Tapt Kund, darshan of Lord Badri Vishal, visit Mana (last Indian village) and Vyas Gufa.' },
+        { day: 'Day 9', title: 'Badrinath to Rudraprayag / Srinagar', desc: 'Morning Maha Abhishek darshan. Drive down witnessing holy river confluences (Panch Prayag: Vishnuprayag, Nandprayag, Karnaprayag, Rudraprayag).' },
+        { day: 'Day 10', title: 'Rudraprayag to Rishikesh & Haridwar Drop', desc: 'Drive via Devprayag (origin of River Ganga). Arrive in Rishikesh, visit Ram Jhula & Lakshman Jhula, culminate yatra with Triveni Ghat Ganga Aarti and drop at Haridwar.' }
+      ]
+    },
+    'pkg-kerala': {
+      title: 'Munnar Tea Hills & Alleppey Luxury Houseboat',
+      state: 'Kerala',
+      zone: 'South India',
+      duration: '5 Days / 4 Nights',
+      pickup: 'Cochin Airport (COK) / Bangalore',
+      fleet: 'Executive Innova Crysta / Pushback Tempo',
+      price: '₹17,500',
+      image: 'assets/packages/kerala.jpg',
+      route: 'Cochin • Munnar • Thekkady • Alleppey Backwaters',
+      days: [
+        { day: 'Day 1', title: 'Cochin to Misty Munnar Hills', desc: 'Warm reception at Cochin. Scenic climb through Western Ghats with photo stops at Cheeyappara and Valara waterfalls. Check in to tea valley resort.' },
+        { day: 'Day 2', title: 'Munnar Full Day Tea Estates & Peaks', desc: 'Visit Eravikulam National Park to spot Nilgiri Tahr mountain goats. Explore Mattupetty Dam, Echo Point, Kundala Lake, and Tata Tea Museum.' },
+        { day: 'Day 3', title: 'Munnar to Thekkady Spice Sanctuary', desc: 'Drive along spice plantations to Thekkady (Periyar). Enjoy guided spice plantation tour, Periyar Tiger Reserve lake boating, and evening martial art (Kalaripayattu) show.' },
+        { day: 'Day 4', title: 'Thekkady to Alleppey Houseboat Cruise', desc: 'Drive to Alleppey (Venice of the East). Board private traditional AC deluxe houseboat at 12:00 PM. Cruise emerald backwaters, paddy fields, with freshly cooked authentic Kerala feast.' },
+        { day: 'Day 5', title: 'Alleppey to Cochin Departure', desc: 'Morning breakfast on backwaters. Disembark houseboat, visit Fort Kochi historic Chinese Fishing Nets & Mattancherry Dutch Palace, with drop at Cochin Airport.' }
+      ]
+    },
+    'pkg-varanasi': {
+      title: 'Kashi Vishwanath, Ayodhya Ram Mandir & Prayagraj',
+      state: 'Uttar Pradesh',
+      zone: 'Pilgrimage',
+      duration: '4 Days / 3 Nights',
+      pickup: 'Varanasi Airport / Station',
+      fleet: 'Executive Sedan / Innova / Tempo Traveller',
+      price: '₹14,500',
+      image: 'assets/packages/varanasi.jpg',
+      route: 'Varanasi • Ayodhya • Prayagraj Sangam',
+      days: [
+        { day: 'Day 1', title: 'Arrival in Sacred Kashi & Ganga Aarti', desc: 'Pickup in Varanasi. Check in. Holy darshan at Kashi Vishwanath Golden Temple and Annapurna Temple. Witness grand sunset Ganga Aarti with flaming brass lamps from private boat.' },
+        { day: 'Day 2', title: 'Subah-e-Banaras to Holy Ayodhya', desc: 'Dawn sunrise boat ride along Varanasi 84 ghats. Drive on green expressway to Ayodhya. Evening visit to Ram Ki Paidi and sacred Saryu river Maha Aarti.' },
+        { day: 'Day 3', title: 'Shri Ram Janmabhoomi & Prayagraj', desc: 'Morning holy darshan at newly inaugurated Shri Ram Janmabhoomi Mandir and Hanuman Garhi. Drive to Prayagraj, visit holy Triveni Sangam for holy dip and Anand Bhavan.' },
+        { day: 'Day 4', title: 'Prayagraj to Sarnath & Departure', desc: 'Visit Alopi Devi Shaktipeeth. Return drive to Varanasi, explore historic Sarnath Buddhist Deer Park (Dhamekh Stupa) where Buddha gave first sermon, followed by airport drop.' }
+      ]
+    },
+    'pkg-meghalaya': {
+      title: 'Enchanting Meghalaya & Kaziranga Safari',
+      state: 'Meghalaya & Assam',
+      zone: 'East & North-East',
+      duration: '6 Days / 5 Nights',
+      pickup: 'Guwahati Airport (GAU)',
+      fleet: 'Innova Crysta / Force Tempo Traveller',
+      price: '₹24,000',
+      image: 'assets/packages/meghalaya.jpg',
+      route: 'Guwahati • Shillong • Cherrapunji • Dawki • Kaziranga',
+      days: [
+        { day: 'Day 1', title: 'Guwahati to Scotland of the East Shillong', desc: 'Arrive at Guwahati Airport. Scenic drive to Shillong, stopping at vast Umiam Lake (Barapani). Evening shopping and cafe hop at vibrant Police Bazar.' },
+        { day: 'Day 2', title: 'Shillong to Wettest Place Cherrapunji', desc: 'Visit Elephant Falls and Shillong Peak. Drive through dramatic cloud valleys to Cherrapunji (Sohra). Marvel at Nohkalikai Falls (tallest plunge falls) and Mawsmai limestone caves.' },
+        { day: 'Day 3', title: 'Double Decker Living Root Bridges Trek', desc: 'Trek down into pristine Khasi rainforests from Tyrna to the awe-inspiring Double Decker Living Root Bridge, engineered out of rubber tree roots over centuries, and Rainbow Falls.' },
+        { day: 'Day 4', title: 'Dawki Crystal Clear Waters & Mawlynnong', desc: 'Visit Mawlynnong (Asia’s Cleanest Village). Drive to Dawki on the Bangladesh border for a magical boat ride on the crystal-clear glass-like waters of Umngot River.' },
+        { day: 'Day 5', title: 'Dawki to World Heritage Kaziranga', desc: 'Scenic cross-country transfer to Kaziranga National Park in Assam. Check in to jungle resort. Evening Assamese traditional Bihu folk cultural program.' },
+        { day: 'Day 6', title: 'Kaziranga Rhino Safari & Guwahati Drop', desc: 'Early morning Elephant & Jeep Safari in Kaziranga Central Kohora Range spotting wild One-Horned Rhinoceros, swamp deer, and wild buffaloes. Transfer to Guwahati Airport with Kamakhya Temple visit.' }
+      ]
+    },
+    'pkg-goldentriangle': {
+      title: 'Golden Triangle: Delhi, Agra & Jaipur Splendour',
+      state: 'Golden Triangle (Delhi-Agra-Jaipur)',
+      zone: 'North India',
+      duration: '4 Days / 3 Nights',
+      pickup: 'New Delhi (DEL) / Airport / Railway',
+      fleet: 'AC Sedan / Innova Crysta / Tempo Traveller',
+      price: '₹13,500',
+      image: 'assets/packages/golden_triangle.jpg',
+      route: 'New Delhi • Agra Taj Mahal • Jaipur Pink City',
+      days: [
+        { day: 'Day 1', title: 'Capital Delhi Sightseeing & Agra Expressway', desc: 'Pickup in New Delhi. Drive past India Gate, Rashtrapati Bhavan, and visit Qutub Minar. Smooth cruise along Yamuna Expressway to royal Mughal city of Agra.' },
+        { day: 'Day 2', title: 'Taj Mahal Sunrise to Jaipur via Fatehpur Sikri', desc: 'Experience breathtaking sunrise over the world-wonder Taj Mahal. Visit colossal Agra Fort. Drive to Jaipur, stopping at the red sandstone UNESCO ghost city of Fatehpur Sikri.' },
+        { day: 'Day 3', title: 'Pink City Citadels & Palaces', desc: 'Ascend to the hilltop Amber Fort. Photo stop at Jal Mahal. Explore Jaipur City Palace, Jantar Mantar sundials, and the intricate honeycomb facade of Hawa Mahal.' },
+        { day: 'Day 4', title: 'Nahargarh Fort & Return to Delhi', desc: 'Morning visit to Nahargarh Fort with bird-eye view of Pink City. Handcrafted blue pottery and gem shopping, followed by comfortable return highway drive to Delhi airport.' }
+      ]
+    },
+    'pkg-karnataka': {
+      title: 'Karnataka Royal Heritage, Western Ghats & Coast',
+      state: 'Karnataka',
+      zone: 'South India',
+      duration: '7 Days / 6 Nights',
+      pickup: 'Bangalore Doorstep / Hub',
+      fleet: '12/17-Seater Tempo Traveller / Innova Crysta',
+      price: '₹22,500',
+      image: 'assets/destinations/coorg.jpg',
+      route: 'Bangalore • Mysore • Coorg • Chikmagalur • Hampi • Gokarna',
+      days: [
+        { day: 'Day 1', title: 'Bangalore to Royal Mysore', desc: '10-Lane Expressway drive to Mysore. Visit grand illuminated Mysore Palace, Chamundi Hills, and Brindavan Gardens musical fountain show.' },
+        { day: 'Day 2', title: 'Mysore to Scotland of India Coorg', desc: 'Visit Kushalnagar Golden Temple Tibetan monastery and Dubare Elephant Camp. Arrive in Madikeri, explore Abbey Falls and Raja’s Seat sunset point.' },
+        { day: 'Day 3', title: 'Coorg to Coffee Land Chikmagalur', desc: 'Drive through verdant Western Ghats. Trek to Mullayanagiri (Karnataka’s highest summit 1,930m), Jhari Waterfalls, and relax in lush coffee homestays.' },
+        { day: 'Day 4', title: 'Hoysala Wonders of Belur to UNESCO Hampi', desc: 'Marvel at 12th-century soapstone Hoysala temple carvings at Belur & Halebeedu. Drive north across Deccan plains to imperial ruins of Vijayanagara Hampi.' },
+        { day: 'Day 5', title: 'Hampi Empire Citadel & Coracle Rides', desc: 'Explore Virupaksha Temple, the iconic Vittala Stone Chariot, Lotus Mahal, Elephant Stables, Matanga Hill sunrise, and Tungabhadra river coracle rides.' },
+        { day: 'Day 6', title: 'Hampi to Pristine Coastal Gokarna', desc: 'Cross to the Arabian Sea coastline. Visit sacred Gokarna Mahabaleshwar Temple with Atmalinga, Om Beach cliff walk, and Kudle sunset.' },
+        { day: 'Day 7', title: 'Gokarna & Murudeshwar to Bangalore Return', desc: 'Visit Murudeshwar towering 123ft Shiva sea statue and 18-storey Raja Gopura, followed by smooth highway return drive to Bangalore.' }
+      ]
+    },
+    'pkg-goa': {
+      title: 'Goa Beach Escapade, Forts & Sunset Cruises',
+      state: 'Goa',
+      zone: 'West India',
+      duration: '4 Days / 3 Nights',
+      pickup: 'Goa Airport / Bangalore Outstation Transfer',
+      fleet: 'Innova Crysta / 12-Seater Tempo Traveller',
+      price: '₹14,000',
+      image: 'assets/services/family.jpg',
+      route: 'North Goa • South Goa • Dudhsagar • Mandovi Cruise',
+      days: [
+        { day: 'Day 1', title: 'Welcome to Coastal Goa & Beach Sunset', desc: 'Arrive in Goa. Check into seaside resort. Relax at Calangute and Baga beaches, enjoy sunset beach shack dining and live coastal music.' },
+        { day: 'Day 2', title: 'North Goa Forts & Water Sports', desc: 'Visit historic Fort Aguada lighthouse cliff, Chapora Fort (Dil Chahta Hai point), Vagator Beach, and thrilling banana boat / parasailing water sports at Anjuna.' },
+        { day: 'Day 3', title: 'Old Goa UNESCO Churches & Dudhsagar', desc: 'Visit Basilica of Bom Jesus (relics of St. Francis Xavier) and Se Cathedral. Excursion to Dudhsagar 4-tiered waterfalls via open 4x4 jungle jeep safari.' },
+        { day: 'Day 4', title: 'Miramar Beach, Mandovi Cruise & Departure', desc: 'Morning visit to Miramar Beach and Dona Paula viewpoint. Enjoy an exhilarating Mandovi River sunset cruise with Goan folk dances, followed by airport drop.' }
+      ]
+    },
+    'pkg-tamilnadu': {
+      title: 'Madurai Meenakshi, Rameswaram & Nilgiri Ooty',
+      state: 'Tamil Nadu',
+      zone: 'South India',
+      duration: '6 Days / 5 Nights',
+      pickup: 'Bangalore / Chennai / Madurai',
+      fleet: 'Executive Tempo Traveller / Innova Crysta',
+      price: '₹21,000',
+      image: 'assets/destinations/ooty.jpg',
+      route: 'Madurai • Rameswaram • Kanyakumari • Ooty',
+      days: [
+        { day: 'Day 1', title: 'Arrival in Temple City Madurai', desc: 'Drive to Madurai. Check in. Visit Thirumalai Nayakkar Palace and attend the divine evening palliyarai pooja at iconic Meenakshi Amman Temple.' },
+        { day: 'Day 2', title: 'Madurai to Sacred Island Rameswaram', desc: 'Drive across the engineering marvel Pamban Sea Bridge. Bath in 22 sacred theerthams, Ramanathaswamy Temple corridor of 1000 pillars, and sunset at Agnitheertham.' },
+        { day: 'Day 3', title: 'Ghost Town Dhanushkodi & Kanyakumari', desc: 'Visit the haunting ghost town of Dhanushkodi where Bay of Bengal meets Indian Ocean. Drive to Kanyakumari to witness sunset at the southernmost tip of mainland India.' },
+        { day: 'Day 4', title: 'Kanyakumari Sunrise & Climb to Nilgiri Ooty', desc: 'Ferry ride to Vivekananda Rock Memorial & Thiruvalluvar Statue. Scenic mountain climb past Coimbatore and 36 hairpin bends to Queen of Hill Stations Ooty.' },
+        { day: 'Day 5', title: 'Ooty & Coonoor Cloud Vistas', desc: 'Ride the UNESCO Nilgiri Mountain Toy Train, visit Sim’s Park in Coonoor, Doddabetta Peak (8,650 ft), Ooty Lake boating, and aromatic Government Botanical Garden.' },
+        { day: 'Day 6', title: 'Ooty through Bandipur Forests to Bangalore', desc: 'Morning tea factory visit. Scenic drive down through Bandipur / Mudumalai Tiger Reserve wildlife corridor with elephant sightings, returning to Bangalore.' }
+      ]
+    },
+    'pkg-gujarat': {
+      title: 'Dwarka, Somnath Jyotirlinga, Gir Lions & Rann',
+      state: 'Gujarat',
+      zone: 'West India',
+      duration: '6 Days / 5 Nights',
+      pickup: 'Ahmedabad (AMD) / Rajkot',
+      fleet: 'Toyota Innova Crysta / Tempo Traveller',
+      price: '₹22,000',
+      image: 'assets/services/wedding.jpg',
+      route: 'Ahmedabad • Dwarka • Somnath • Gir National Park • White Rann',
+      days: [
+        { day: 'Day 1', title: 'Ahmedabad to Sacred Dwarka Kingdom', desc: 'Pickup in Ahmedabad. Visit Sabarmati Ashram, drive across Saurashtra to Lord Krishna’s holy citadel Dwarka. Attend evening Aarti at Dwarkadhish Temple.' },
+        { day: 'Day 2', title: 'Dwarka to Somnath Seafront Jyotirlinga', desc: 'Ferry boat to Bet Dwarka island, visit Nageshwar Jyotirlinga, and drive along Arabian Sea to Somnath Temple for magnificent beachfront evening sound & light show.' },
+        { day: 'Day 3', title: 'Somnath to Sasan Gir Lion Sanctuary', desc: 'Morning darshan at Somnath, visit Bhalka Tirth sacred spot. Drive to Sasan Gir, check into jungle lodge, and explore Gir crocodile breeding center.' },
+        { day: 'Day 4', title: 'Gir Asiatic Lion Safari to Bhuj', desc: 'Dawn open-top Jeep Safari inside Gir National Park spotting wild Asiatic Lions and leopards. Scenic drive north across Gujarat to historic Kutch capital Bhuj.' },
+        { day: 'Day 5', title: 'White Rann of Kutch Salt Desert Sunset', desc: 'Drive to Great Rann of Kutch. Climb Kalo Dungar (Black Hill) for horizon views. Walk across the endless shimmering white salt desert as the golden sunset turns pink and violet.' },
+        { day: 'Day 6', title: 'Kutch Handicrafts & Return to Ahmedabad', desc: 'Visit artisan villages of Bhirandiyara and Nirona (Rogan art). Smooth return highway drive to Ahmedabad for departure flight/train.' }
+      ]
+    },
+    'pkg-maharashtra': {
+      title: 'Ajanta & Ellora Caves, Shirdi Sai Baba Kshetram',
+      state: 'Maharashtra',
+      zone: 'West India',
+      duration: '5 Days / 4 Nights',
+      pickup: 'Mumbai / Pune / Aurangabad',
+      fleet: 'Executive Sedan / Innova Crysta',
+      price: '₹17,000',
+      image: 'assets/destinations/mysore.jpg',
+      route: 'Mumbai/Pune • Shirdi • Aurangabad • Ellora & Ajanta • Mahabaleshwar',
+      days: [
+        { day: 'Day 1', title: 'Mumbai/Pune to Sacred Shirdi', desc: 'Early highway departure to Shirdi. Check in and experience blessed VIP Samadhi Mandir darshan, Dwarkamai, Chavadi, and Gurusthan.' },
+        { day: 'Day 2', title: 'Shirdi to Aurangabad Heritage', desc: 'Visit Shani Shingnapur open-air temple. Transfer to Aurangabad. Explore Bibi Ka Maqbara (Taj of Deccan) and Panchakki historic water mill.' },
+        { day: 'Day 3', title: 'Monolithic Kailasa Temple at Ellora', desc: 'Full day at UNESCO World Heritage Ellora Caves. Be stunned by Cave 16 (Kailasa Temple), carved out of a single vertical cliff face by 8th-century Rashtrakuta artisans.' },
+        { day: 'Day 4', title: 'Ajanta Ancient Murals to Western Ghats', desc: 'Visit 30 rock-cut Buddhist cave monuments of Ajanta with 2,000-year-old preserved frescoes. Drive towards lush Western Ghats.' },
+        { day: 'Day 5', title: 'Mahabaleshwar Viewpoints & Return Drop', desc: 'Explore Arthur’s Seat, Kate’s Point, Venna Lake boating, and fresh strawberry farms in Mahabaleshwar, returning smoothly to Pune/Mumbai.' }
+      ]
+    },
+    'pkg-sikkim': {
+      title: 'Gangtok, Tsomgo Glacial Lake & Darjeeling Hills',
+      state: 'Sikkim & West Bengal',
+      zone: 'East & North-East',
+      duration: '6 Days / 5 Nights',
+      pickup: 'Bagdogra (IXB) / NJP Railway',
+      fleet: 'Innova Crysta / Scorpio / Tempo Traveller',
+      price: '₹23,000',
+      image: 'assets/destinations/chikmagalur.jpg',
+      route: 'Bagdogra • Gangtok • Tsomgo Lake • Nathula • Darjeeling',
+      days: [
+        { day: 'Day 1', title: 'Bagdogra to Himalayan Capital Gangtok', desc: 'Picturesque mountain drive along roaring Teesta River. Arrive in Gangtok (5,500 ft), check in, and stroll along pedestrian flower-lined MG Marg.' },
+        { day: 'Day 2', title: 'High-Altitude Tsomgo Lake & Nathula Pass', desc: 'Excursion to sacred glacial Tsomgo Lake (12,400 ft) surrounded by snow peaks. Visit Baba Harbhajan Singh Mandir and Indo-China border at Nathula Pass.' },
+        { day: 'Day 3', title: 'Gangtok Monasteries to Queen of Hills Darjeeling', desc: 'Visit Rumtek Monastery (seat of Black Hat Karmapa) and Do Drul Chorten. Drive along tea-carpeted slopes into colonial hill retreat Darjeeling.' },
+        { day: 'Day 4', title: 'Tiger Hill Golden Sunrise & Toy Train', desc: 'Wake up at 4:00 AM for sunrise over world’s 3rd highest peak Mt. Kanchenjunga from Tiger Hill. Experience Darjeeling UNESCO Toy Train joyride & Batasia Loop.' },
+        { day: 'Day 5', title: 'Darjeeling Tea Estates & Mountaineering', desc: 'Visit Happy Valley Tea Estate with tea tasting, Himalayan Mountaineering Institute (HMI), Padmaja Naidu Himalayan Zoo (snow leopards & red pandas).' },
+        { day: 'Day 6', title: 'Darjeeling to Bagdogra Drop via Mirik', desc: 'Scenic return drive via Mirik Lake and pine forests along the Nepal border corridor, dropping you comfortably at Bagdogra Airport.' }
+      ]
+    },
+    'pkg-madhyapradesh': {
+      title: 'Ujjain Mahakal, Khajuraho & Bandhavgarh Safari',
+      state: 'Madhya Pradesh',
+      zone: 'Pilgrimage',
+      duration: '5 Days / 4 Nights',
+      pickup: 'Indore / Bhopal / Jabalpur',
+      fleet: 'Innova Crysta / Tempo Traveller',
+      price: '₹18,000',
+      image: 'assets/destinations/hampi.jpg',
+      route: 'Indore • Ujjain • Omkareshwar • Khajuraho • Bandhavgarh',
+      days: [
+        { day: 'Day 1', title: 'Indore to Ujjain Mahakaleshwar', desc: 'Pickup in Indore. Transfer to Ujjain. Holy darshan at Shree Mahakaleshwar Jyotirlinga, Kal Bhairav Temple, and holy Shipra River Ram Ghat.' },
+        { day: 'Day 2', title: 'Island Jyotirlinga Omkareshwar to Bhopal', desc: 'Drive to sacred Narmada River island shrine of Omkareshwar Jyotirlinga. Holy boat ride, temple darshan, and transfer to lake city Bhopal.' },
+        { day: 'Day 3', title: 'Sanchi Stupa to Temple City Khajuraho', desc: 'Visit 3rd-century BC UNESCO Sanchi Buddhist Stupa. Scenic drive across Bundelkhand to world-famous temple art capital Khajuraho.' },
+        { day: 'Day 4', title: 'Khajuraho Stone Carvings to Bandhavgarh', desc: 'Marvel at UNESCO Western Group of Temples (Kandariya Mahadeva). Drive to Bandhavgarh National Park, boasting India’s highest Royal Bengal Tiger density.' },
+        { day: 'Day 5', title: 'Tiger Safari & Jabalpur Marble Rocks Drop', desc: 'Dawn open-top Jeep Safari inside Bandhavgarh core forest. Afternoon drive to Jabalpur, view stunning Bhedaghat Narmada Marble Rocks, and airport drop.' }
+      ]
+    },
+    'pkg-odisha': {
+      title: 'Puri Jagannath, Konark Sun Temple & Chilika Lake',
+      state: 'Odisha',
+      zone: 'East & North-East',
+      duration: '4 Days / 3 Nights',
+      pickup: 'Bhubaneswar Airport (BBI) / Puri',
+      fleet: 'Executive Sedan / Innova / Tempo Traveller',
+      price: '₹13,000',
+      image: 'assets/services/pilgrimage.jpg',
+      route: 'Bhubaneswar • Konark • Puri Jagannath • Chilika Lake',
+      days: [
+        { day: 'Day 1', title: 'Bhubaneswar to Sacred Puri Beach', desc: 'Pickup in temple city Bhubaneswar. Visit Dhauli Peace Pagoda and Pipili applique village. Check into seaside hotel in Puri and relax at Golden Beach.' },
+        { day: 'Day 2', title: 'Lord Jagannath Dham & Konark Sun Temple', desc: 'Morning darshan at sacred Jagannath Temple and taste divine Mahaprasad. Drive along marine drive to the 13th-century UNESCO Konark Sun Temple chariot marvel.' },
+        { day: 'Day 3', title: 'Chilika Lake Dolphin Lagoon Safari', desc: 'Excursion to Satapada on Chilika Lake (Asia’s largest coastal lagoon). Private motorboat cruise spotting playful rare Irrawaddy dolphins and Sea Mouth.' },
+        { day: 'Day 4', title: 'Bhubaneswar Ancient Temples & Departure', desc: 'Return to Bhubaneswar. Explore 1,000-year-old Lingaraj Temple, Rajarani Temple, and Udayagiri & Khandagiri Jain rock-cut caves, followed by airport drop.' }
+      ]
+    },
+    'pkg-andhra': {
+      title: 'Tirupati Lord Balaji VIP Darshan & Hyderabad',
+      state: 'Andhra Pradesh & Telangana',
+      zone: 'South India',
+      duration: '3 Days / 2 Nights',
+      pickup: 'Bangalore Doorstep / Chennai / Hyderabad',
+      fleet: 'Innova Crysta / Tempo Traveller 12-Seater',
+      price: '₹11,500',
+      image: 'assets/services/pilgrimage.jpg',
+      route: 'Bangalore/Chennai • Tirupati Balaji • Hyderabad Deccan',
+      days: [
+        { day: 'Day 1', title: 'Bangalore to Sacred Tirupati Hills', desc: 'Expressway drive from Bangalore through Chittoor to Tirupati. Check in. Visit Sri Padmavathi Ammavari Temple at Tiruchanur and ISKCON.' },
+        { day: 'Day 2', title: 'Tirumala Lord Venkateswara VIP Darshan', desc: 'Climb the sacred Seven Hills of Tirumala. Assisted Sheeghra / Special Entry Darshan of Lord Balaji. Collect holy Tirupati Laddu Prasadam, visit Silathoranam.' },
+        { day: 'Day 3', title: 'Tirupati to Pearl City Hyderabad', desc: 'Drive to historic Hyderabad. Visit iconic Charminar, shop at Laad Bazaar for bangles, savor authentic Hyderabadi Biryani, and tour Golconda Fort before departure.' }
+      ]
+    },
+    'pkg-uttarakhand-scenic': {
+      title: 'Nainital Lake District, Mussoorie & Rishikesh',
+      state: 'Uttarakhand Scenic',
+      zone: 'North India',
+      duration: '5 Days / 4 Nights',
+      pickup: 'Delhi / Dehradun Airport',
+      fleet: 'Executive Sedan / Innova Crysta / Tempo Traveller',
+      price: '₹16,500',
+      image: 'assets/destinations/kodaikanal.jpg',
+      route: 'Delhi • Haridwar • Rishikesh • Mussoorie • Nainital',
+      days: [
+        { day: 'Day 1', title: 'Delhi to Holy Haridwar & Rishikesh', desc: 'Drive from Delhi to the holy Ganges. Walk across Ram Jhula and Lakshman Jhula in Rishikesh, followed by attending soul-stirring Ganga Aarti at Parmarth Niketan.' },
+        { day: 'Day 2', title: 'Ganga White Water Rafting to Mussoorie', desc: 'Experience 12 KM river rafting rapids on the clear Ganges. Afternoon mountain drive to Queen of Hills Mussoorie. Evening stroll on Mall Road.' },
+        { day: 'Day 3', title: 'Mussoorie Waterfalls to Nainital Lake District', desc: 'Visit Kempty Falls and Gun Hill ropeway viewpoint. Scenic highway journey across Kumaon hills to emerald lake town Nainital.' },
+        { day: 'Day 4', title: 'Nainital Boating & Himalayan Viewpoints', desc: 'Boating on star-shaped Naini Lake, visit Naina Devi Temple, Snow View Point for Himalayan vistas, and excursion to Bhimtal and Sattal lakes.' },
+        { day: 'Day 5', title: 'Nainital to Delhi / Dehradun Drop', desc: 'Drive down through lush Corbett foothills with mountain souvenir shopping, returning safely to Delhi or Dehradun airport.' }
+      ]
+    }
+  };
+
+  // DOM Elements
+  const pkgSearchInput = document.getElementById('pkgSearchInput');
+  const pkgSearchClearBtn = document.getElementById('pkgSearchClearBtn');
+  const pkgStateSelect = document.getElementById('pkgStateSelect');
+  const pkgDurationSelect = document.getElementById('pkgDurationSelect');
+  const pkgResetBtn = document.getElementById('pkgResetBtn');
+  const btnResetFiltersInline = document.getElementById('btnResetFiltersInline');
+  const pkgZoneTabs = document.querySelectorAll('.pkg-zone-tab');
+  const pkgQuickChips = document.querySelectorAll('.state-quick-chip');
+  const pkgCards = document.querySelectorAll('.package-card-premium');
+  const pkgActiveCount = document.getElementById('pkgActiveCount');
+  const pkgNoResultsCard = document.getElementById('pkgNoResultsCard');
+  const packagesMasterGrid = document.getElementById('packagesMasterGrid');
+
+  // Modal Elements
+  const pkgModalBackdrop = document.getElementById('packageDetailModal');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalPkgTitle = document.getElementById('modalPkgTitle');
+  const modalPkgState = document.getElementById('modalPkgState');
+  const modalPkgImage = document.getElementById('modalPkgImage');
+  const modalPkgDuration = document.getElementById('modalPkgDuration');
+  const modalPkgPickup = document.getElementById('modalPkgPickup');
+  const modalPkgFleet = document.getElementById('modalPkgFleet');
+  const modalPkgPrice = document.getElementById('modalPkgPrice');
+  const modalFooterPrice = document.getElementById('modalFooterPrice');
+  const modalPkgTimeline = document.getElementById('modalPkgTimeline');
+  const modalWhatsAppBtn = document.getElementById('modalWhatsAppBtn');
+
+  // Filter State
+  let currentFilter = {
+    search: '',
+    state: 'all',
+    duration: 'all',
+    zone: 'all'
+  };
+
+  // Master Filter Function
+  function applyPackagesFilter() {
+    if (!pkgCards.length) return;
+
+    let visibleCount = 0;
+    const searchLower = currentFilter.search.trim().toLowerCase();
+
+    pkgCards.forEach(card => {
+      const cardState = card.dataset.state || '';
+      const cardZone = card.dataset.zone || '';
+      const cardDuration = card.dataset.duration || '';
+      const cardTags = (card.dataset.tags || '').toLowerCase();
+      const cardText = (card.textContent || '').toLowerCase();
+
+      // Check Zone Match
+      const matchesZone = (currentFilter.zone === 'all') || 
+                          (cardZone === currentFilter.zone) ||
+                          (currentFilter.zone === 'pilgrimage' && cardTags.includes('pilgrim')) ||
+                          (currentFilter.zone === 'hills' && (cardTags.includes('hills') || cardTags.includes('honeymoon')));
+
+      // Check State Match
+      const matchesState = (currentFilter.state === 'all') || 
+                           (cardState === currentFilter.state) ||
+                           (cardState.includes(currentFilter.state));
+
+      // Check Duration Match
+      const matchesDuration = (currentFilter.duration === 'all') || (cardDuration === currentFilter.duration);
+
+      // Check Search Match
+      const matchesSearch = !searchLower || 
+                            cardText.includes(searchLower) || 
+                            cardTags.includes(searchLower) ||
+                            cardState.includes(searchLower);
+
+      if (matchesZone && matchesState && matchesDuration && matchesSearch) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Update Counter & Fallback
+    if (pkgActiveCount) {
+      pkgActiveCount.textContent = visibleCount;
+    }
+
+    if (pkgNoResultsCard) {
+      if (visibleCount === 0) {
+        pkgNoResultsCard.style.display = 'block';
+      } else {
+        pkgNoResultsCard.style.display = 'none';
+      }
+    }
+  }
+
+  // Live Search Handler
+  if (pkgSearchInput) {
+    pkgSearchInput.addEventListener('input', () => {
+      currentFilter.search = pkgSearchInput.value;
+      if (pkgSearchClearBtn) {
+        pkgSearchClearBtn.style.display = currentFilter.search ? 'flex' : 'none';
+      }
+      applyPackagesFilter();
+    });
+
+    if (pkgSearchClearBtn) {
+      pkgSearchClearBtn.addEventListener('click', () => {
+        pkgSearchInput.value = '';
+        currentFilter.search = '';
+        pkgSearchClearBtn.style.display = 'none';
+        applyPackagesFilter();
+      });
+    }
+  }
+
+  // State Dropdown Handler
+  if (pkgStateSelect) {
+    pkgStateSelect.addEventListener('change', () => {
+      currentFilter.state = pkgStateSelect.value;
+      
+      // Sync quick chips
+      pkgQuickChips.forEach(chip => {
+        if (chip.dataset.state === currentFilter.state) {
+          chip.classList.add('active');
+        } else {
+          chip.classList.remove('active');
+        }
+      });
+
+      applyPackagesFilter();
+    });
+  }
+
+  // Duration Dropdown Handler
+  if (pkgDurationSelect) {
+    pkgDurationSelect.addEventListener('change', () => {
+      currentFilter.duration = pkgDurationSelect.value;
+      applyPackagesFilter();
+    });
+  }
+
+  // Zone Tabs Handler
+  pkgZoneTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      pkgZoneTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentFilter.zone = tab.dataset.zone || 'all';
+      applyPackagesFilter();
+    });
+  });
+
+  // Quick State Chips Handler
+  pkgQuickChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      pkgQuickChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const st = chip.dataset.state || 'all';
+      currentFilter.state = st;
+      if (pkgStateSelect) {
+        pkgStateSelect.value = st;
+      }
+      applyPackagesFilter();
+    });
+  });
+
+  // Reset Filters Handlers
+  function resetAllPackageFilters() {
+    currentFilter = { search: '', state: 'all', duration: 'all', zone: 'all' };
+    if (pkgSearchInput) pkgSearchInput.value = '';
+    if (pkgSearchClearBtn) pkgSearchClearBtn.style.display = 'none';
+    if (pkgStateSelect) pkgStateSelect.value = 'all';
+    if (pkgDurationSelect) pkgDurationSelect.value = 'all';
+
+    pkgZoneTabs.forEach(t => t.classList.remove('active'));
+    const allZoneTab = document.querySelector('.pkg-zone-tab[data-zone="all"]');
+    if (allZoneTab) allZoneTab.classList.add('active');
+
+    pkgQuickChips.forEach(c => c.classList.remove('active'));
+    const allChip = document.querySelector('.state-quick-chip[data-state="all"]');
+    if (allChip) allChip.classList.add('active');
+
+    applyPackagesFilter();
+  }
+
+  if (pkgResetBtn) pkgResetBtn.addEventListener('click', resetAllPackageFilters);
+  if (btnResetFiltersInline) btnResetFiltersInline.addEventListener('click', resetAllPackageFilters);
+
+  // URL Parameters Auto-Filter (?state=rajasthan, ?zone=north)
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramState = urlParams.get('state');
+  const paramZone = urlParams.get('zone');
+  const paramSearch = urlParams.get('search');
+
+  if (paramState) {
+    currentFilter.state = paramState;
+    if (pkgStateSelect) pkgStateSelect.value = paramState;
+    pkgQuickChips.forEach(chip => {
+      if (chip.dataset.state === paramState) chip.classList.add('active');
+      else chip.classList.remove('active');
+    });
+  }
+
+  if (paramZone) {
+    currentFilter.zone = paramZone;
+    pkgZoneTabs.forEach(tab => {
+      if (tab.dataset.zone === paramZone) tab.classList.add('active');
+      else tab.classList.remove('active');
+    });
+  }
+
+  if (paramSearch && pkgSearchInput) {
+    pkgSearchInput.value = paramSearch;
+    currentFilter.search = paramSearch;
+    if (pkgSearchClearBtn) pkgSearchClearBtn.style.display = 'flex';
+  }
+
+  if (paramState || paramZone || paramSearch) {
+    applyPackagesFilter();
+  }
+
+  // Interactive Itinerary Modal Opener
+  document.querySelectorAll('[data-open-modal]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pkgId = btn.dataset.openModal;
+      openPackageItineraryModal(pkgId);
+    });
+  });
+
+  function openPackageItineraryModal(pkgId) {
+    const pkg = PACKAGES_DATABASE[pkgId];
+    if (!pkg || !pkgModalBackdrop) return;
+
+    if (modalPkgTitle) modalPkgTitle.textContent = pkg.title;
+    if (modalPkgState) modalPkgState.textContent = `📍 ${pkg.state} • ${pkg.zone}`;
+    if (modalPkgImage) {
+      modalPkgImage.src = pkg.image;
+      modalPkgImage.alt = pkg.title;
+    }
+    if (modalPkgDuration) modalPkgDuration.textContent = pkg.duration;
+    if (modalPkgPickup) modalPkgPickup.textContent = pkg.pickup;
+    if (modalPkgFleet) modalPkgFleet.textContent = pkg.fleet;
+    if (modalPkgPrice) modalPkgPrice.textContent = `${pkg.price} onwards`;
+    if (modalFooterPrice) modalFooterPrice.textContent = `${pkg.price} starting fare`;
+
+    // Populate Day-by-Day Steps
+    if (modalPkgTimeline) {
+      modalPkgTimeline.innerHTML = '';
+      (pkg.days || []).forEach(step => {
+        const stepElem = document.createElement('div');
+        stepElem.className = 'pkg-timeline-step';
+        stepElem.innerHTML = `
+          <div class="pkg-step-day">${escapeHtml(step.day)}</div>
+          <div class="pkg-step-title">${escapeHtml(step.title)}</div>
+          <div class="pkg-step-desc">${escapeHtml(step.desc)}</div>
+        `;
+        modalPkgTimeline.appendChild(stepElem);
+      });
+    }
+
+    // Build WhatsApp CTA URL with Rich Pre-Filled Text
+    if (modalWhatsAppBtn) {
+      const waText = 
+`*TOUR PACKAGE INQUIRY - SJT TOURS & TRAVELS*
+━━━━━━━━━━━━━━━━━━━━━
+🗺️ *Package:* ${pkg.title}
+📍 *State & Region:* ${pkg.state} (${pkg.zone})
+⏱️ *Duration:* ${pkg.duration}
+🛣️ *Route:* ${pkg.route}
+🚐 *Fleet Preference:* ${pkg.fleet}
+💰 *Starting Fare:* ${pkg.price}
+━━━━━━━━━━━━━━━━━━━━━
+*SJT Registered Hub:*
+Sharanappa, # 101 BGS Layout, Nagasandra post Bangalore 560073
+━━━━━━━━━━━━━━━━━━━━━
+_Hello SJT Team, I would like to check availability and get a detailed day-wise customized quotation for this package._`;
+
+      modalWhatsAppBtn.href = `https://wa.me/${SJT_PHONE}?text=${encodeURIComponent(waText)}`;
+    }
+
+    pkgModalBackdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePackageItineraryModal() {
+    if (pkgModalBackdrop) {
+      pkgModalBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closePackageItineraryModal);
+  }
+
+  if (pkgModalBackdrop) {
+    pkgModalBackdrop.addEventListener('click', (e) => {
+      if (e.target === pkgModalBackdrop) {
+        closePackageItineraryModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && pkgModalBackdrop && pkgModalBackdrop.classList.contains('active')) {
+      closePackageItineraryModal();
+    }
+  });
+
+  // Custom Tour Package Builder Form Submission
+  const customTourForm = document.getElementById('customTourForm');
+  if (customTourForm) {
+    customTourForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const pickup = document.getElementById('customPickup')?.value.trim() || 'Bangalore';
+      const destState = document.getElementById('customDestinationState')?.value || 'All-India Tour';
+      const travelDate = document.getElementById('customTravelDate')?.value || 'Flexible';
+      const duration = document.getElementById('customDurationDays')?.value || '3-4 Days';
+      const passengers = document.getElementById('customPassengerCount')?.value.trim() || '4 Adults';
+      const vehicle = document.getElementById('customVehiclePreference')?.value || 'Innova Crysta / Tempo Traveller';
+
+      const customMessage =
+`*CUSTOM ALL-INDIA TOUR PACKAGE REQUEST - SJT TOURS & TRAVELS*
+━━━━━━━━━━━━━━━━━━━━━
+📍 *Pickup Location:* ${pickup}
+🗺️ *Target State / Circuit:* ${destState}
+📅 *Departure Date:* ${travelDate}
+⏱️ *Trip Duration:* ${duration}
+👥 *Travelers & Luggage:* ${passengers}
+🚐 *Preferred Fleet:* ${vehicle}
+━━━━━━━━━━━━━━━━━━━━━
+*SJT Registered Hub:*
+Sharanappa, # 101 1st main 4th cross BGS Layout near narasappa cricle Thotadaguddadahalli Nagasandra post Bangalore 560073
+━━━━━━━━━━━━━━━━━━━━━
+_Please prepare a customized day-by-day itinerary with transparent per-KM / fixed package quotation._`;
+
+      const waUrl = `https://wa.me/${SJT_PHONE}?text=${encodeURIComponent(customMessage)}`;
+      window.open(waUrl, '_blank');
+      showToast('Custom package inquiry created! Opening WhatsApp...');
+    });
+  }
+
+  // Hero Visual Banner Image Cyclic Slideshow for Packages Page
+  const heroVisualImage = document.getElementById('heroVisualImage');
+  if (heroVisualImage) {
+    const bannerImages = [
+      'assets/packages/rajasthan.jpg',
+      'assets/packages/kashmir.jpg',
+      'assets/packages/himachal.jpg',
+      'assets/packages/kerala.jpg',
+      'assets/packages/varanasi.jpg',
+      'assets/packages/meghalaya.jpg'
+    ];
+    let bannerIdx = 0;
+    setInterval(() => {
+      bannerIdx = (bannerIdx + 1) % bannerImages.length;
+      heroVisualImage.style.opacity = '0.4';
+      setTimeout(() => {
+        heroVisualImage.src = bannerImages[bannerIdx];
+        heroVisualImage.style.opacity = '1';
+      }, 350);
+    }, 4500);
+  }
+
+
   // Utilities
   function escapeHtml(text) {
     return (text || '').replace(/[&<>"']/g, function(m) {
