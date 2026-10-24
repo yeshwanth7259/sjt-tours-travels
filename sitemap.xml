@@ -1,63 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sjttoursandtravels.in/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.sjttravels.com/</loc>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://sjttoursandtravels.in/about.html</loc>
-    <lastmod>2026-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <loc>https://www.sjttravels.com/packages.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://sjttoursandtravels.in/corporate.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.sjttravels.com/vehicles.html</loc>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://sjttoursandtravels.in/vehicles.html</loc>
-    <lastmod>2026-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://sjttoursandtravels.in/services.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.sjttravels.com/destinations.html</loc>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://sjttoursandtravels.in/destinations.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.sjttravels.com/driver-onboarding.html</loc>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://sjttoursandtravels.in/gallery.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.sjttravels.com/corporate.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.sjttravels.com/services.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.sjttravels.com/about.html</loc>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://sjttoursandtravels.in/faq.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.sjttravels.com/gallery.html</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.sjttravels.com/faq.html</loc>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://sjttoursandtravels.in/contact.html</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://www.sjttravels.com/contact.html</loc>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://sjttoursandtravels.in/driver-onboarding.html</loc>
-    <lastmod>2026-10-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
   </url>
 </urlset>

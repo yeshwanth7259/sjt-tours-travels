@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sjttoursandtravels.in/sitemap.xml
+Sitemap: https://www.sjttravels.com/sitemap.xml
