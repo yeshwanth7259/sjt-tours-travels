@@ -236,23 +236,23 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 82px;
-  padding: 0 36px;
-  max-width: 1680px;
+  height: 76px;
+  padding: 0 clamp(16px, 2vw, 36px);
+  max-width: 1720px;
   margin: 0 auto;
-  gap: 20px;
+  gap: clamp(10px, 1.2vw, 20px);
 }
 
 /* Clean Official 3D Brand Logo */
 .brand-logo-wrap {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
 .brand-logo-img {
-  height: 58px;
+  height: clamp(44px, 3.2vw, 54px);
   width: auto;
   object-fit: contain;
   transition: transform 0.25s ease;
@@ -262,20 +262,29 @@ button, input, select, textarea {
   transform: scale(1.03);
 }
 
-/* Desktop Navigation */
+/* Desktop Navigation - STRICTLY SINGLE LINE NO-WRAP */
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: clamp(8px, 1.05vw, 18px);
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  flex-shrink: 1;
 }
 
 .nav-link {
-  font-size: 0.95rem;
+  font-size: clamp(0.81rem, 0.88vw, 0.92rem);
   font-weight: 600;
   color: var(--slate-700);
   position: relative;
-  padding: 8px 0;
+  padding: 8px 1px;
   transition: var(--transition-fast);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  line-height: 1.2;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -301,48 +310,57 @@ button, input, select, textarea {
 .badge-corp-tag {
   background: #ede9fe;
   color: #6d28d9;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 800;
-  padding: 2px 7px;
+  padding: 2px 6px;
   border-radius: var(--radius-full);
   text-transform: uppercase;
-  margin-left: 4px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .badge-driver-tag {
   background: #dcfce7;
   color: #15803d;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 800;
-  padding: 2px 7px;
+  padding: 2px 6px;
   border-radius: var(--radius-full);
   text-transform: uppercase;
-  margin-left: 4px;
   letter-spacing: 0.3px;
-  display: inline-block;
-  box-shadow: 0 1px 4px rgba(21, 128, 61, 0.15);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgba(21, 128, 61, 0.15);
+  flex-shrink: 0;
 }
 
 /* Header Action Buttons */
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: clamp(6px, 0.8vw, 12px);
   flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .btn-header-call {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 10px 18px;
+  gap: 6px;
+  padding: 8px clamp(10px, 0.9vw, 16px);
   background-color: var(--slate-100);
   color: var(--sjt-navy-900);
-  font-size: 0.875rem;
+  font-size: clamp(0.78rem, 0.84vw, 0.86rem);
   font-weight: 700;
   border-radius: var(--radius-full);
   border: 1px solid var(--slate-200);
   transition: var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .btn-header-call:hover {
@@ -351,18 +369,27 @@ button, input, select, textarea {
   transform: translateY(-1px);
 }
 
+.btn-header-call svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
 .btn-header-whatsapp {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
+  gap: 6px;
+  padding: 8px clamp(12px, 1.1vw, 20px);
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   color: var(--white);
-  font-size: 0.925rem;
+  font-size: clamp(0.8rem, 0.88vw, 0.88rem);
   font-weight: 800;
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-green);
   transition: var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .btn-header-whatsapp:hover {
@@ -370,10 +397,11 @@ button, input, select, textarea {
   box-shadow: 0 12px 26px rgba(37, 211, 102, 0.55);
 }
 
-.btn-header-whatsapp svg, .btn-header-call svg {
-  width: 18px;
-  height: 18px;
+.btn-header-whatsapp svg {
+  width: 17px;
+  height: 17px;
   fill: currentColor;
+  flex-shrink: 0;
 }
 
 .mobile-toggle-btn {
@@ -2418,14 +2446,38 @@ button, input, select, textarea {
   }
 }
 
+@media (max-width: 1220px) {
+  .header-actions .btn-header-call {
+    display: none;
+  }
+  .desktop-nav {
+    gap: 9px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-toggle-btn {
+    display: block;
+  }
+
+  .header-inner {
+    padding: 0 18px;
+    height: 72px;
+  }
+}
+
 @media (max-width: 860px) {
   .top-notice-bar {
     display: none;
   }
 
   .header-inner {
-    padding: 0 20px;
-    height: 72px;
+    padding: 0 16px;
+    height: 70px;
   }
 
   .desktop-nav {
