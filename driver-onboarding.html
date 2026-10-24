@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <link rel="icon" type="image/png" href="assets/logos/sjt_logo.png">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <title>Driver &amp; Vehicle Onboarding | Attach Your Cab / Bus | SJT Tours &amp; Travels Pvt. Ltd.</title>
@@ -295,10 +295,10 @@
                   <div class="onboard-field">
                     <label class="onboard-label" for="driverExperience">Driving Experience <span class="req">*</span></label>
                     <select id="driverExperience" class="onboard-select" required>
-                      <option value="">Select Experience</option>
+                      <option value="" selected disabled>Select Experience</option>
                       <option value="1 to 2 Years">1 - 2 Years</option>
                       <option value="3 to 5 Years">3 - 5 Years</option>
-                      <option value="6 to 10 Years" selected>6 - 10 Years</option>
+                      <option value="6 to 10 Years">6 - 10 Years</option>
                       <option value="10+ Years">10+ Years (Senior Veteran)</option>
                     </select>
                   </div>
@@ -309,11 +309,11 @@
                   </div>
 
                   <div class="onboard-field col-span-2">
-                    <label class="onboard-label">Languages Spoken</label>
+                    <label class="onboard-label">Languages Spoken (Select what you speak)</label>
                     <div class="pref-chips-wrap">
-                      <label class="pref-chip"><input type="checkbox" name="languages" value="Kannada" checked><span>🗣️ Kannada</span></label>
-                      <label class="pref-chip"><input type="checkbox" name="languages" value="English" checked><span>🗣️ English</span></label>
-                      <label class="pref-chip"><input type="checkbox" name="languages" value="Hindi" checked><span>🗣️ Hindi</span></label>
+                      <label class="pref-chip"><input type="checkbox" name="languages" value="Kannada"><span>🗣️ Kannada</span></label>
+                      <label class="pref-chip"><input type="checkbox" name="languages" value="English"><span>🗣️ English</span></label>
+                      <label class="pref-chip"><input type="checkbox" name="languages" value="Hindi"><span>🗣️ Hindi</span></label>
                       <label class="pref-chip"><input type="checkbox" name="languages" value="Telugu"><span>🗣️ Telugu</span></label>
                       <label class="pref-chip"><input type="checkbox" name="languages" value="Tamil"><span>🗣️ Tamil</span></label>
                     </div>
@@ -337,7 +337,7 @@
                   <div class="onboard-field">
                     <label class="onboard-label" for="vehicleModel">Vehicle Make &amp; Model <span class="req">*</span></label>
                     <select id="vehicleModel" class="onboard-select" required>
-                      <option value="">Select Vehicle Model</option>
+                      <option value="" selected disabled>Select Vehicle Model</option>
                       <option value="Maruti Swift (4 Seater)">Maruti Swift (4 Seater)</option>
                       <option value="Toyota Etios Sedan (4+1)">Toyota Etios Sedan (4+1)</option>
                       <option value="Maruti Suzuki Ertiga (6+1)">Maruti Suzuki Ertiga (6+1)</option>
@@ -361,8 +361,9 @@
                   <div class="onboard-field">
                     <label class="onboard-label" for="vehicleYear">Manufacturing / Reg Year <span class="req">*</span></label>
                     <select id="vehicleYear" class="onboard-select" required>
+                      <option value="" selected disabled>Select Year</option>
                       <option value="2025">2025 (Brand New)</option>
-                      <option value="2024" selected>2024</option>
+                      <option value="2024">2024</option>
                       <option value="2023">2023</option>
                       <option value="2022">2022</option>
                       <option value="2021">2021</option>
@@ -375,7 +376,8 @@
                   <div class="onboard-field">
                     <label class="onboard-label" for="vehicleFuelType">Fuel &amp; Air Conditioning <span class="req">*</span></label>
                     <select id="vehicleFuelType" class="onboard-select" required>
-                      <option value="Diesel - AC" selected>Diesel - Full AC</option>
+                      <option value="" selected disabled>Select Fuel &amp; AC</option>
+                      <option value="Diesel - AC">Diesel - Full AC</option>
                       <option value="Petrol - AC">Petrol - Full AC</option>
                       <option value="CNG - AC">CNG - Full AC</option>
                       <option value="Electric (EV) - AC">Electric (EV) - Full AC</option>
@@ -386,7 +388,8 @@
                   <div class="onboard-field">
                     <label class="onboard-label" for="vehicleOwnership">Ownership Status <span class="req">*</span></label>
                     <select id="vehicleOwnership" class="onboard-select" required>
-                      <option value="Owner Driver (Self Driving)" selected>Owner Driver (Self Driving)</option>
+                      <option value="" selected disabled>Select Ownership</option>
+                      <option value="Owner Driver (Self Driving)">Owner Driver (Self Driving)</option>
                       <option value="Fleet Owner (Hired Driver)">Fleet Owner (Multiple Cabs)</option>
                       <option value="Company Attached Driver">Company Attached Driver</option>
                     </select>
@@ -395,7 +398,8 @@
                   <div class="onboard-field">
                     <label class="onboard-label" for="vehiclePermitType">Permit Category <span class="req">*</span></label>
                     <select id="vehiclePermitType" class="onboard-select" required>
-                      <option value="All India Tourist Permit (AITP)" selected>All India Tourist Permit (AITP)</option>
+                      <option value="" selected disabled>Select Permit Category</option>
+                      <option value="All India Tourist Permit (AITP)">All India Tourist Permit (AITP)</option>
                       <option value="Karnataka State Tourist Permit">Karnataka State Tourist Permit</option>
                       <option value="City Taxi Permit (Bangalore)">City Taxi Permit (Bangalore)</option>
                     </select>
@@ -404,10 +408,10 @@
                   <div class="onboard-field col-span-2">
                     <label class="onboard-label">Preferred Trip Duties (Select All That Apply)</label>
                     <div class="pref-chips-wrap">
-                      <label class="pref-chip"><input type="checkbox" name="dutyPref" value="Outstation Tours" checked><span>🛣️ Outstation Tours</span></label>
-                      <label class="pref-chip"><input type="checkbox" name="dutyPref" value="IT Corporate Monthly" checked><span>🏢 IT Corporate Monthly</span></label>
-                      <label class="pref-chip"><input type="checkbox" name="dutyPref" value="Local 8Hr/80Km" checked><span>📍 Local (8Hr/80Km)</span></label>
-                      <label class="pref-chip"><input type="checkbox" name="dutyPref" value="Airport Kempegowda" checked><span>✈️ Airport Transfers</span></label>
+                      <label class="pref-chip"><input type="checkbox" name="dutyPref" value="Outstation Tours"><span>🛣️ Outstation Tours</span></label>
+                      <label class="pref-chip"><input type="checkbox" name="dutyPref" value="IT Corporate Monthly"><span>🏢 IT Corporate Monthly</span></label>
+                      <label class="pref-chip"><input type="checkbox" name="dutyPref" value="Local 8Hr/80Km"><span>📍 Local (8Hr/80Km)</span></label>
+                      <label class="pref-chip"><input type="checkbox" name="dutyPref" value="Airport Kempegowda"><span>✈️ Airport Transfers</span></label>
                       <label class="pref-chip"><input type="checkbox" name="dutyPref" value="Weddings & Events"><span>💍 Weddings &amp; Events</span></label>
                     </div>
                   </div>
@@ -1055,11 +1059,11 @@ _I want to attach my vehicle with SJT Tours & Travels. Please review my details 
 
       // Collect selected languages
       const langCheckboxes = document.querySelectorAll('input[name="languages"]:checked');
-      const languages = Array.from(langCheckboxes).map(c => c.value).join(', ') || 'Kannada, English';
+      const languages = Array.from(langCheckboxes).map(c => c.value).join(', ') || 'Not Specified';
 
       // Collect selected duties
       const dutyCheckboxes = document.querySelectorAll('input[name="dutyPref"]:checked');
-      const duties = Array.from(dutyCheckboxes).map(c => c.value).join(', ') || 'All Duties';
+      const duties = Array.from(dutyCheckboxes).map(c => c.value).join(', ') || 'Flexible / Any Duty';
 
       // Validation
       if (!name || !mobile || !city || !exp || !dlNo || !vModel || !vReg) {
