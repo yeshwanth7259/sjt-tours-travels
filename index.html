@@ -214,10 +214,17 @@
 
             <!-- Trip Mode Selector Tabs -->
             <div class="trip-tabs-container" role="tablist">
-              <button type="button" class="trip-mode-pill" data-mode="one-way">One Way</button>
+              <button type="button" class="trip-mode-pill" data-mode="outstation">Outstation</button>
               <button type="button" class="trip-mode-pill active" data-mode="round-trip">Round Trip</button>
-              <button type="button" class="trip-mode-pill" data-mode="local-4hr">Local (4Hr/40Km)</button>
-              <button type="button" class="trip-mode-pill" data-mode="local-8hr">Local (8Hr/80Km)</button>
+              <button type="button" class="trip-mode-pill" data-mode="one-way">One Way</button>
+              <button type="button" class="trip-mode-pill" data-mode="local">Local</button>
+            </div>
+
+            <!-- Local Package Slab Quick Chips (Visible when Local is chosen) -->
+            <div class="local-slab-subbar" id="localSlabSubbar" style="display: none;">
+              <span class="slab-subbar-label">Local Package:</span>
+              <button type="button" class="slab-chip-btn" data-slab="4hr">4 Hr / 40 Km</button>
+              <button type="button" class="slab-chip-btn active" data-slab="8hr">8 Hr / 80 Km</button>
             </div>
           </div>
 
@@ -256,12 +263,24 @@
                 </div>
               </div>
 
-              <!-- Return Date -->
+              <!-- Return Date (For Outstation & Round Trip) -->
               <div class="field-cell" id="returnDateFieldGroup">
                 <label class="cell-label" for="returnDateInput">Return Date (Optional)</label>
                 <div class="cell-input-wrap">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                   <input type="date" id="returnDateInput" class="cell-input">
+                </div>
+              </div>
+
+              <!-- Local Slab Selector (Replaces Return Date when Local is chosen) -->
+              <div class="field-cell" id="localSlabFieldGroup" style="display: none;">
+                <label class="cell-label" for="localPackageSlabSelect">Package Slab</label>
+                <div class="cell-input-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><polyline stroke-width="2" points="12 6 12 12 16 14"/></svg>
+                  <select id="localPackageSlabSelect" class="cell-select">
+                    <option value="4hr">4 Hours / 40 KM (Half Day)</option>
+                    <option value="8hr" selected>8 Hours / 80 KM (Full Day)</option>
+                  </select>
                 </div>
               </div>
 
@@ -342,14 +361,14 @@
 
       <!-- Full-Width Bottom Service Badges -->
       <div class="hero-services-row">
-        <div class="service-pill-item" onclick="selectTripMode('local-8hr')">
+        <div class="service-pill-item" onclick="selectTripMode('local')">
           <div class="service-pill-icon">📍</div>
           <div class="service-pill-text">
             <strong>Local Trips</strong>
             <span>4Hr/40Km &amp; 8Hr/80Km</span>
           </div>
         </div>
-        <div class="service-pill-item" onclick="selectTripMode('round-trip')">
+        <div class="service-pill-item" onclick="selectTripMode('outstation')">
           <div class="service-pill-icon">🛣️</div>
           <div class="service-pill-text">
             <strong>Outstation Trips</strong>

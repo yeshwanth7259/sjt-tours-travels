@@ -289,6 +289,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const travelDateInput = document.getElementById('travelDateInput');
   const returnDateInput = document.getElementById('returnDateInput');
   const returnDateFieldGroup = document.getElementById('returnDateFieldGroup');
+  const localSlabFieldGroup = document.getElementById('localSlabFieldGroup');
+  const localSlabSubbar = document.getElementById('localSlabSubbar');
+  const localPackageSlabSelect = document.getElementById('localPackageSlabSelect');
+  const slabChipBtns = document.querySelectorAll('.slab-chip-btn');
 
   const modalBackdrop = document.getElementById('bookingModalBackdrop');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
@@ -304,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tripModeBtns = document.querySelectorAll('.trip-mode-pill, .trip-mode-btn');
 
   let currentTripMode = 'round-trip';
+  let currentLocalSlab = '8hr';
 
   // 1. Sticky Header
   if (header) {
@@ -337,7 +342,30 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeMobileDrawer);
   });
 
-  // 3. Trip Mode Switcher
+  // 3. Trip Mode Switcher & Local Slab Controls
+  function setLocalSlab(slab) {
+    currentLocalSlab = slab;
+    if (localPackageSlabSelect) localPackageSlabSelect.value = slab;
+    slabChipBtns.forEach(chip => {
+      chip.classList.toggle('active', chip.dataset.slab === slab);
+    });
+    if (currentTripMode === 'local' && dropInput && dropInput.value.includes('Local Disposal')) {
+      dropInput.value = `Bangalore Local Disposal (${slab === '4hr' ? '4 Hr / 40 Km' : '8 Hr / 80 Km'})`;
+    }
+  }
+
+  slabChipBtns.forEach(chip => {
+    chip.addEventListener('click', () => {
+      setLocalSlab(chip.dataset.slab);
+    });
+  });
+
+  if (localPackageSlabSelect) {
+    localPackageSlabSelect.addEventListener('change', (e) => {
+      setLocalSlab(e.target.value);
+    });
+  }
+
   tripModeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       tripModeBtns.forEach(b => b.classList.remove('active'));
@@ -346,34 +374,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const dropLabel = document.querySelector('label[for="dropLocationInput"]');
 
-      if (currentTripMode === 'one-way' || currentTripMode === 'local-4hr' || currentTripMode === 'local-8hr' || currentTripMode === 'local-hourly') {
+      if (currentTripMode === 'local') {
         if (returnDateFieldGroup) returnDateFieldGroup.style.display = 'none';
-      } else {
-        if (returnDateFieldGroup) returnDateFieldGroup.style.display = 'flex';
-      }
+        if (localSlabFieldGroup) localSlabFieldGroup.style.display = 'flex';
+        if (localSlabSubbar) localSlabSubbar.style.display = 'inline-flex';
 
-      if (currentTripMode === 'local-4hr') {
-        if (dropLabel) dropLabel.textContent = 'To (Area / 4Hr 40Km Usage)';
+        if (dropLabel) dropLabel.textContent = 'To (Area / Sightseeing)';
         if (dropInput) {
-          dropInput.placeholder = 'e.g. Bangalore Local Sightseeing / Meetings (4 Hr / 40 Km)';
+          dropInput.placeholder = `e.g. Bangalore Local Sightseeing / Meetings (${currentLocalSlab === '4hr' ? '4 Hr / 40 Km' : '8 Hr / 80 Km'})`;
           if (!dropInput.value.trim() || dropInput.value.includes('Local Disposal')) {
-            dropInput.value = 'Bangalore Local Disposal (4 Hr / 40 Km)';
-            if (dropClearBtn) dropClearBtn.style.display = 'flex';
-          }
-        }
-      } else if (currentTripMode === 'local-8hr' || currentTripMode === 'local-hourly') {
-        if (dropLabel) dropLabel.textContent = 'To (Area / 8Hr 80Km Usage)';
-        if (dropInput) {
-          dropInput.placeholder = 'e.g. Bangalore Full Day Sightseeing / Disposal (8 Hr / 80 Km)';
-          if (!dropInput.value.trim() || dropInput.value.includes('Local Disposal')) {
-            dropInput.value = 'Bangalore Local Disposal (8 Hr / 80 Km)';
+            dropInput.value = `Bangalore Local Disposal (${currentLocalSlab === '4hr' ? '4 Hr / 40 Km' : '8 Hr / 80 Km'})`;
             if (dropClearBtn) dropClearBtn.style.display = 'flex';
           }
         }
       } else {
-        if (dropLabel) dropLabel.textContent = 'To (Destination)';
+        if (localSlabFieldGroup) localSlabFieldGroup.style.display = 'none';
+        if (localSlabSubbar) localSlabSubbar.style.display = 'none';
+
+        if (currentTripMode === 'one-way') {
+          if (returnDateFieldGroup) returnDateFieldGroup.style.display = 'none';
+        } else {
+          if (returnDateFieldGroup) returnDateFieldGroup.style.display = 'flex';
+        }
+
+        if (dropLabel) {
+          dropLabel.textContent = currentTripMode === 'outstation' ? 'To (Outstation Destination)' : 'To (Destination)';
+        }
         if (dropInput) {
-          dropInput.placeholder = 'Type destination... (e.g. C, O, M)';
+          dropInput.placeholder = currentTripMode === 'outstation' 
+            ? 'Type outstation city... (e.g. Coorg, Ooty, Mysore)' 
+            : 'Type destination... (e.g. C, O, M)';
           if (dropInput.value.includes('Local Disposal')) {
             dropInput.value = '';
             if (dropClearBtn) dropClearBtn.style.display = 'none';
@@ -384,7 +414,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.selectTripMode = function(mode) {
-    if (mode === 'local-hourly') mode = 'local-8hr';
+    if (mode === 'local-hourly' || mode === 'local-8hr') {
+      mode = 'local';
+      setLocalSlab('8hr');
+    } else if (mode === 'local-4hr') {
+      mode = 'local';
+      setLocalSlab('4hr');
+    }
     const targetBtn = document.querySelector(`.trip-mode-pill[data-mode="${mode}"], .trip-mode-btn[data-mode="${mode}"]`);
     if (targetBtn) {
       targetBtn.click();
@@ -622,22 +658,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    if (currentTripMode === 'local-4hr') {
-      const amt = Math.round(vehicle.baseDay * 0.45);
-      return {
-        amount: amt,
-        label: '₹' + amt.toLocaleString('en-IN') + ' (4 Hr / 40 Km)',
-        approxKm: 40,
-        slabTitle: '4 Hours / 40 KM Local Package'
-      };
-    } else if (currentTripMode === 'local-8hr' || currentTripMode === 'local-hourly') {
-      const amt = Math.round(vehicle.baseDay * 0.65);
-      return {
-        amount: amt,
-        label: '₹' + amt.toLocaleString('en-IN') + ' (8 Hr / 80 Km)',
-        approxKm: 80,
-        slabTitle: '8 Hours / 80 KM Local Package'
-      };
+    if (currentTripMode === 'local') {
+      if (currentLocalSlab === '4hr') {
+        const amt = Math.round(vehicle.baseDay * 0.45);
+        return {
+          amount: amt,
+          label: '₹' + amt.toLocaleString('en-IN') + ' (4 Hr / 40 Km)',
+          approxKm: 40,
+          slabTitle: '4 Hours / 40 KM Local Package'
+        };
+      } else {
+        const amt = Math.round(vehicle.baseDay * 0.65);
+        return {
+          amount: amt,
+          label: '₹' + amt.toLocaleString('en-IN') + ' (8 Hr / 80 Km)',
+          approxKm: 80,
+          slabTitle: '8 Hours / 80 KM Local Package'
+        };
+      }
     } else if (currentTripMode === 'one-way') {
       const totalKm = Math.max(Math.round(estimatedKm * 1.3), vehicle.minKmDay);
       const fare = totalKm * vehicle.perKm;
@@ -646,6 +684,15 @@ document.addEventListener('DOMContentLoaded', () => {
         label: '₹' + fare.toLocaleString('en-IN') + ' Approx*',
         approxKm: totalKm,
         slabTitle: 'One Way Outstation'
+      };
+    } else if (currentTripMode === 'outstation') {
+      const totalKm = Math.max(estimatedKm * 2, vehicle.minKmDay * 2);
+      const fare = totalKm * vehicle.perKm;
+      return {
+        amount: fare,
+        label: '₹' + fare.toLocaleString('en-IN') + ' Approx*',
+        approxKm: totalKm,
+        slabTitle: 'Outstation Multi-Day Tour'
       };
     } else {
       const totalKm = Math.max(estimatedKm * 2, vehicle.minKmDay);
@@ -667,10 +714,12 @@ document.addEventListener('DOMContentLoaded', () => {
       let pickup = pickupInput?.value.trim() || 'Bengaluru';
       let drop = dropInput?.value.trim() || '';
 
-      if (currentTripMode === 'local-4hr') {
-        if (!drop) drop = 'Bangalore Local Disposal (4 Hr / 40 Km)';
-      } else if (currentTripMode === 'local-8hr' || currentTripMode === 'local-hourly') {
-        if (!drop) drop = 'Bangalore Local Disposal (8 Hr / 80 Km)';
+      if (currentTripMode === 'local') {
+        if (!drop) {
+          drop = `Bangalore Local Disposal (${currentLocalSlab === '4hr' ? '4 Hr / 40 Km' : '8 Hr / 80 Km'})`;
+        }
+      } else if (currentTripMode === 'outstation') {
+        if (!drop) drop = 'Outstation Holiday / Tour Destination';
       } else {
         if (!drop) drop = 'Outstation Sightseeing / Tour';
       }
@@ -683,11 +732,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let tripModeTitle = 'ROUND TRIP OUTSTATION';
       if (currentTripMode === 'one-way') {
-        tripModeTitle = 'ONE WAY OUTSTATION';
-      } else if (currentTripMode === 'local-4hr') {
-        tripModeTitle = 'LOCAL PACKAGE (4 HR / 40 KM SLAB)';
-      } else if (currentTripMode === 'local-8hr' || currentTripMode === 'local-hourly') {
-        tripModeTitle = 'LOCAL PACKAGE (8 HR / 80 KM SLAB)';
+        tripModeTitle = 'ONE WAY OUTSTATION DROP';
+      } else if (currentTripMode === 'outstation') {
+        tripModeTitle = 'OUTSTATION MULTI-DAY TOUR';
+      } else if (currentTripMode === 'local') {
+        tripModeTitle = currentLocalSlab === '4hr' 
+          ? 'LOCAL PACKAGE (4 HR / 40 KM SLAB)' 
+          : 'LOCAL PACKAGE (8 HR / 80 KM SLAB)';
       }
 
       const randomId = Math.floor(1000 + Math.random() * 9000);
