@@ -706,9 +706,14 @@ button, input, select, textarea {
 /* Booking Form Grid (6 Columns: 5 inputs + 1 prominent submit button) */
 .booking-inputs-grid {
   display: grid;
-  grid-template-columns: 1.35fr 1.35fr 1.05fr 1.05fr 1.3fr 1.65fr;
+  grid-template-columns: 1.35fr 1.35fr 1.05fr 1.05fr 1.3fr 1.7fr;
   gap: 16px;
   align-items: flex-end;
+}
+
+/* 5-Column Grid for One Way: seamlessly fills 100% width, no blank right gap, single-line submit button */
+.booking-inputs-grid.mode-one-way {
+  grid-template-columns: 1.35fr 1.35fr 1.1fr 1.35fr 1.85fr !important;
 }
 
 .field-cell {
@@ -2466,7 +2471,10 @@ button, input, select, textarea {
    ========================================================================== */
 @media (max-width: 1440px) {
   .booking-inputs-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .booking-inputs-grid.mode-one-way .submit-cell-wrap {
+    grid-column: span 2 !important;
   }
 
   .corporate-logos-strip {
@@ -6942,25 +6950,49 @@ html {
   padding-left: 44px !important;
 }
 
-/* WhatsApp submit buttons: strictly wrap text, never overflow */
+/* WhatsApp submit buttons: ensure single-line text and clean alignment */
 .btn-whatsapp-submit {
   width: 100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
-  white-space: normal !important;
-  word-break: break-word !important;
+  white-space: nowrap !important;
+  word-break: normal !important;
   text-align: center !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 14px 18px !important;
+  gap: 10px !important;
+  padding: 0 18px !important;
+  height: 60px !important;
   min-height: 52px !important;
-  height: auto !important;
-  line-height: 1.3 !important;
+  font-size: 1.02rem !important;
+  line-height: 1 !important;
 }
 
 .btn-whatsapp-submit span {
-  white-space: normal !important;
+  white-space: nowrap !important;
+  word-break: normal !important;
+  display: inline-block !important;
+}
+
+@media (max-width: 768px) {
+  .btn-whatsapp-submit {
+    height: 52px !important;
+    font-size: 0.98rem !important;
+    padding: 0 14px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .btn-whatsapp-submit {
+    font-size: 0.88rem !important;
+    gap: 6px !important;
+    padding: 0 10px !important;
+  }
+  .btn-whatsapp-submit .wa-icon-official {
+    width: 22px !important;
+    height: 22px !important;
+  }
 }
 
 /* Header WhatsApp Button Mobile Behavior (clean 'WhatsApp' text on <=768px) */

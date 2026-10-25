@@ -366,11 +366,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const bookingInputsGrid = document.getElementById('bookingInputsGrid') || document.querySelector('.booking-inputs-grid');
+
   tripModeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       tripModeBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentTripMode = btn.dataset.mode;
+
+      if (bookingInputsGrid) {
+        if (currentTripMode === 'one-way') {
+          bookingInputsGrid.classList.add('mode-one-way');
+        } else {
+          bookingInputsGrid.classList.remove('mode-one-way');
+        }
+      }
 
       const dropLabel = document.querySelector('label[for="dropLocationInput"]');
 
