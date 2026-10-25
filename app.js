@@ -344,15 +344,47 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active');
       currentTripMode = btn.dataset.mode;
 
-      if (currentTripMode === 'one-way' || currentTripMode === 'local-hourly') {
+      const dropLabel = document.querySelector('label[for="dropLocationInput"]');
+
+      if (currentTripMode === 'one-way' || currentTripMode === 'local-4hr' || currentTripMode === 'local-8hr' || currentTripMode === 'local-hourly') {
         if (returnDateFieldGroup) returnDateFieldGroup.style.display = 'none';
       } else {
         if (returnDateFieldGroup) returnDateFieldGroup.style.display = 'flex';
+      }
+
+      if (currentTripMode === 'local-4hr') {
+        if (dropLabel) dropLabel.textContent = 'To (Area / 4Hr 40Km Usage)';
+        if (dropInput) {
+          dropInput.placeholder = 'e.g. Bangalore Local Sightseeing / Meetings (4 Hr / 40 Km)';
+          if (!dropInput.value.trim() || dropInput.value.includes('Local Disposal')) {
+            dropInput.value = 'Bangalore Local Disposal (4 Hr / 40 Km)';
+            if (dropClearBtn) dropClearBtn.style.display = 'flex';
+          }
+        }
+      } else if (currentTripMode === 'local-8hr' || currentTripMode === 'local-hourly') {
+        if (dropLabel) dropLabel.textContent = 'To (Area / 8Hr 80Km Usage)';
+        if (dropInput) {
+          dropInput.placeholder = 'e.g. Bangalore Full Day Sightseeing / Disposal (8 Hr / 80 Km)';
+          if (!dropInput.value.trim() || dropInput.value.includes('Local Disposal')) {
+            dropInput.value = 'Bangalore Local Disposal (8 Hr / 80 Km)';
+            if (dropClearBtn) dropClearBtn.style.display = 'flex';
+          }
+        }
+      } else {
+        if (dropLabel) dropLabel.textContent = 'To (Destination)';
+        if (dropInput) {
+          dropInput.placeholder = 'Type destination... (e.g. C, O, M)';
+          if (dropInput.value.includes('Local Disposal')) {
+            dropInput.value = '';
+            if (dropClearBtn) dropClearBtn.style.display = 'none';
+          }
+        }
       }
     });
   });
 
   window.selectTripMode = function(mode) {
+    if (mode === 'local-hourly') mode = 'local-8hr';
     const targetBtn = document.querySelector(`.trip-mode-pill[data-mode="${mode}"], .trip-mode-btn[data-mode="${mode}"]`);
     if (targetBtn) {
       targetBtn.click();
@@ -590,18 +622,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    if (currentTripMode === 'local-hourly') {
+    if (currentTripMode === 'local-4hr') {
+      const amt = Math.round(vehicle.baseDay * 0.45);
+      return {
+        amount: amt,
+        label: '₹' + amt.toLocaleString('en-IN') + ' (4 Hr / 40 Km)',
+        approxKm: 40,
+        slabTitle: '4 Hours / 40 KM Local Package'
+      };
+    } else if (currentTripMode === 'local-8hr' || currentTripMode === 'local-hourly') {
       const amt = Math.round(vehicle.baseDay * 0.65);
       return {
         amount: amt,
-        label: '₹' + amt.toLocaleString('en-IN') + ' (8 Hr/80 Km)',
-        approxKm: 80
-      };
-    } else if (currentTripMode === 'monthly-corp') {
-      return {
-        amount: Math.round(vehicle.baseDay * 24),
-        label: 'Custom IT Contract Rate Card',
-        approxKm: 'Dedicated Monthly'
+        label: '₹' + amt.toLocaleString('en-IN') + ' (8 Hr / 80 Km)',
+        approxKm: 80,
+        slabTitle: '8 Hours / 80 KM Local Package'
       };
     } else if (currentTripMode === 'one-way') {
       const totalKm = Math.max(Math.round(estimatedKm * 1.3), vehicle.minKmDay);
@@ -609,7 +644,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         amount: fare,
         label: '₹' + fare.toLocaleString('en-IN') + ' Approx*',
-        approxKm: totalKm
+        approxKm: totalKm,
+        slabTitle: 'One Way Outstation'
       };
     } else {
       const totalKm = Math.max(estimatedKm * 2, vehicle.minKmDay);
@@ -617,7 +653,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         amount: fare,
         label: '₹' + fare.toLocaleString('en-IN') + ' Approx*',
-        approxKm: totalKm
+        approxKm: totalKm,
+        slabTitle: 'Round Trip Outstation'
       };
     }
   }
@@ -627,13 +664,31 @@ document.addEventListener('DOMContentLoaded', () => {
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const pickup = pickupInput?.value.trim() || 'Bengaluru';
-      const drop = dropInput?.value.trim() || 'Outstation Sightseeing / Tour';
+      let pickup = pickupInput?.value.trim() || 'Bengaluru';
+      let drop = dropInput?.value.trim() || '';
+
+      if (currentTripMode === 'local-4hr') {
+        if (!drop) drop = 'Bangalore Local Disposal (4 Hr / 40 Km)';
+      } else if (currentTripMode === 'local-8hr' || currentTripMode === 'local-hourly') {
+        if (!drop) drop = 'Bangalore Local Disposal (8 Hr / 80 Km)';
+      } else {
+        if (!drop) drop = 'Outstation Sightseeing / Tour';
+      }
+
       const travelDate = travelDateInput?.value || new Date().toISOString().split('T')[0];
       const returnDate = returnDateInput?.value || '';
       const vehicleKey = vehicleSelect?.value || 'tempo-12';
       const vehicle = VEHICLE_PRICING[vehicleKey] || { name: 'Tempo Traveller', perKm: 22 };
       const fareInfo = getEstimatedFareDetails(drop, vehicleKey);
+
+      let tripModeTitle = 'ROUND TRIP OUTSTATION';
+      if (currentTripMode === 'one-way') {
+        tripModeTitle = 'ONE WAY OUTSTATION';
+      } else if (currentTripMode === 'local-4hr') {
+        tripModeTitle = 'LOCAL PACKAGE (4 HR / 40 KM SLAB)';
+      } else if (currentTripMode === 'local-8hr' || currentTripMode === 'local-hourly') {
+        tripModeTitle = 'LOCAL PACKAGE (8 HR / 80 KM SLAB)';
+      }
 
       const randomId = Math.floor(1000 + Math.random() * 9000);
       const bookingRef = `SJT-${new Date().getFullYear()}-${randomId}`;
@@ -642,11 +697,12 @@ document.addEventListener('DOMContentLoaded', () => {
 `*NEW TRAVEL ENQUIRY - SJT TOURS & TRAVELS PVT. LTD.*
 ━━━━━━━━━━━━━━━━━━━━━
 🔖 *Booking Ref:* ${bookingRef}
-🚖 *Trip Mode:* ${currentTripMode.toUpperCase().replace('-', ' ')}
+🚖 *Trip Mode:* ${tripModeTitle}
 📍 *Pickup Location:* ${pickup}
-🏁 *Destination Drop:* ${drop}
+🏁 *Destination / Usage:* ${drop}
 📅 *Journey Date:* ${travelDate}
 ${returnDate ? `🔙 *Return Date:* ${returnDate}\n` : ''}🚐 *Vehicle Requested:* ${vehicle.name}
+💰 *Estimated Fare:* ${fareInfo.label}
 ━━━━━━━━━━━━━━━━━━━━━
 *SJT Registered Hub:*
 Sharanappa, # 101 1st main 4th cross BGS Layout near narasappa cricle Thotadaguddadahalli Nagasandra post Bangalore 560073
@@ -673,7 +729,7 @@ _Please confirm vehicle availability, driver contact, and final best quote._`;
         returnDate,
         vehicleName: vehicle.name,
         fare: fareInfo.label,
-        tripMode: currentTripMode.toUpperCase().replace('-', ' '),
+        tripMode: tripModeTitle,
         waUrl
       });
     });
